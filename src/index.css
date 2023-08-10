@@ -1,4 +1,10 @@
-:root {}
+:root {
+  --body-bg-color: linear-gradient(rgb(32, 39, 56) 0%, rgb(7, 8, 22) 100%);
+  --card-bg: rgb(13, 17, 28);
+  --text-color: rgb(152, 161, 192);
+  --body-bg-shade: radial-gradient(72.04% 72.04% at 50% 3.99%, rgb(255, 55, 235) 0%, rgba(166, 151, 255, 0) 100%);
+  --card-border-color: 1px solid rgba(152, 161, 192, 0.24);
+}
 
 * {
   margin: 0;
@@ -6,10 +12,15 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: 'Inter', sans-serif;
+  overflow: visible;
 }
 
 a {
@@ -23,4 +34,25 @@ a:hover {
 
 ul {
   list-style: none;
+}
+
+.dark-theme {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: var(--body-bg-color);
+  overflow: hidden;
+}
+
+.dark-theme::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  width: 200vw;
+  height: 200vh;
+  transform: translate(-50vw, -100vh);
+  z-index: 1;
 }
