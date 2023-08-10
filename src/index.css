@@ -4,6 +4,9 @@
   --text-color: rgb(152, 161, 192);
   --body-bg-shade: radial-gradient(72.04% 72.04% at 50% 3.99%, rgb(255, 55, 235) 0%, rgba(166, 151, 255, 0) 100%);
   --card-border-color: 1px solid rgba(152, 161, 192, 0.24);
+  --card-hover-color: 1px solid rgb(76, 130, 251);
+  --card-inside-color: rgb(19, 26, 42);
+  --color-white: #FFFFFF;
 }
 
 * {

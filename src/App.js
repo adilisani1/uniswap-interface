@@ -9,8 +9,10 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 
 import Home from './pages/Home/Home';
+import Swap from "./pages/Swap/Swap";
 
 import "./app.css";
+
 
 const Layout = () => {
   return (
@@ -31,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/swap",
+        element: <Swap />,
       },
     ]
   },
