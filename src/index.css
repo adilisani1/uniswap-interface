@@ -23,7 +23,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Inter', sans-serif;
-  overflow: visible;
+  overflow-x: hidden !important;
 }
 
 a {
@@ -44,7 +44,6 @@ ul {
   width: 100vw;
   height: 100vh;
   background: var(--body-bg-color);
-  overflow: hidden;
 }
 
 .dark-theme::before {
@@ -58,4 +57,51 @@ ul {
   height: 200vh;
   transform: translate(-50vw, -100vh);
   z-index: 1;
+}
+
+.backdrop {
+  position: absolute;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  top: 0px;
+  left: 0;
+  bottom: 0px;
+  width: 100%;
+  min-height: 550px;
+  background: linear-gradient(rgba(8, 10, 24, 0) 0%, rgb(8, 10, 24) 45%);
+  z-index: 990;
+  pointer-events: none;
+  height: calc(100vh - 52px);
+  overflow: hidden;
+
+}
+
+/* .gtxiKG {
+  position: absolute;
+  display: flex;
+  overflow: hidden;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  top: 0px;
+  bottom: 0px;
+  width: 100%;
+  overflow-y: hidden;
+  height: calc(100vh - 52px);
+} */
+
+@media screen and (min-width: 768px) {
+  .backdrop {
+    height: 100vh;
+  }
+
+  /* 
+  .gtxiKG {
+    height: 100vh;
+  } */
+
 }
