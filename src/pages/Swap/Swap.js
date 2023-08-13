@@ -7,6 +7,9 @@ const Swap = () => {
         "you-receive": ""
     });
 
+    const [etheriumId, setEtheriumId] = useState("ethId");
+    const [tokenId, setTokenId] = useState("tokenId");
+
     const handleInputChange = (event) => {
         const inputValue = event.target.value;
         const inputName = event.target.name;
@@ -18,6 +21,53 @@ const Swap = () => {
             }));
         }
     };
+
+    const switchHandler = () => {
+        const temp = etheriumId;
+        setEtheriumId(tokenId);
+        setTokenId(temp);
+
+    };
+    const renderButtonContent = (currencyId) => {
+        if (currencyId === "ethId") {
+            return (
+                <button id={`open-currency-select`} className='open-currency-btn-top'>
+                    <span className='span-one'>
+                        <div className='cryptocurrency-wrapper'>
+                            <div class="image-wrapper " >
+                                <div>
+                                    <img className='icon-image' src='./assets/images/eth-icon.png' alt='eth-icon' />
+                                </div>
+                            </div>
+                            <span class="token-name">ETH</span>
+                        </div>
+                        <div className='dropdown-icon'>
+                            <i className="ri-arrow-down-s-line"></i>                                                            </div>
+                    </span>
+
+                </button>
+            );
+        } else {
+            return (
+                <button id={`open-currency-select`} className='open-currency-btn-bottom'>
+                    <span className='span-two'>
+                        <div className='cryptocurrency-wrapper'>
+                            <div class="text-wrapper" >
+                                <span class="select-token">Select token</span>
+                            </div>
+
+                        </div>
+                        <div className='dropdown-icon'>
+                            <i className="ri-arrow-down-s-line"></i>                                                            </div>
+                    </span>
+
+                </button>
+            )
+
+
+        }
+    };
+
 
     return (
 
@@ -63,24 +113,9 @@ const Swap = () => {
                                             value={inputValues["you-pay"]}
                                             onChange={handleInputChange} />
 
-                                        <div>
-                                            <button id="open-currency-select" className='open-currency-btn'>
-                                                <span className=''>
-                                                    <div className='cryptocurrency-wrapper'>
-                                                        <div class="image-wrapper " >
-                                                            <div>
-                                                                <img className='icon-image' src='./assets/images/eth-icon.png' alt='eth-icon' />
-                                                            </div>
-                                                        </div>
-                                                        <span class="token-name">ETH</span>
-                                                    </div>
-                                                    <div className='dropdown-icon'>
-                                                        <i className="ri-arrow-down-s-line"></i>                                                            </div>
-                                                </span>
-
-                                            </button>
+                                        <div id={etheriumId}>
+                                            {renderButtonContent(etheriumId)}
                                         </div>
-
 
                                     </div>
 
@@ -90,7 +125,7 @@ const Swap = () => {
 
                         </div>
 
-                        <div className='switch-button'>
+                        <div className='switch-button' onClick={switchHandler}>
                             <div className='switch-bg'>
                                 <i className="arrow-down ri-arrow-down-line" ></i>
                             </div>
@@ -115,22 +150,9 @@ const Swap = () => {
                                                 value={inputValues["you-receive"]}
                                                 onChange={handleInputChange} />
 
-                                            <div>
-                                                <button id="open-currency-select" className='open-currency-btn'>
-                                                    <span className=''>
-                                                        <div className='cryptocurrency-wrapper'>
-                                                            <div class="text-wrapper" >
-                                                                <span class="select-token">Select token</span>
-                                                            </div>
-
-                                                        </div>
-                                                        <div className='dropdown-icon'>
-                                                            <i className="ri-arrow-down-s-line"></i>                                                            </div>
-                                                    </span>
-
-                                                </button>
+                                            <div id={tokenId}>
+                                                {renderButtonContent(tokenId)}
                                             </div>
-
 
                                         </div>
 

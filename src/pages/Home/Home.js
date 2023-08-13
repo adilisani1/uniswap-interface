@@ -51,8 +51,8 @@ const Home = () => {
                                                     />
 
                                                     <div>
-                                                        <button id="open-currency-select" className='open-currency-btn'>
-                                                            <span className=''>
+                                                        <button id="open-currency-select" className='open-currency-btn-top'>
+                                                            <span className='span-one'>
                                                                 <div className='cryptocurrency-wrapper'>
                                                                     <div class="image-wrapper " >
                                                                         <div>
@@ -103,8 +103,8 @@ const Home = () => {
                                                         />
 
                                                         <div>
-                                                            <button id="open-currency-select" className='open-currency-btn'>
-                                                                <span className=''>
+                                                            <button id="open-currency-select" className='open-currency-btn-bottom'>
+                                                                <span className='span-two'>
                                                                     <div className='cryptocurrency-wrapper'>
                                                                         <div class="text-wrapper" >
                                                                             <span class="select-token">Select token</span>

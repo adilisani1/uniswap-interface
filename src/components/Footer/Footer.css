@@ -99,27 +99,28 @@
         justify-content: space-between;
     }
 
-.dNOeBf {
-    display: flex;
+    .dNOeBf {
+        display: flex;
     }
 
-.dIIePS {
-            display: block;
-        }
-.iGtTgy {
-    display: none;
-                }
+    .dIIePS {
+        display: block;
+    }
+
+    .iGtTgy {
+        display: none;
+    }
 
 }
 
-@media screen and (min-width: 1280px){
+@media screen and (min-width: 1280px) {
     .kzmIWZ {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 24px;
-}
-.dbjOeL {
-    margin: 0px;
-}
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 24px;
+    }
+
+    .dbjOeL {
+        margin: 0px;
+    }
 
 }
-

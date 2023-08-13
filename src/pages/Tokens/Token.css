@@ -1,0 +1,176 @@
+.token-container {
+    width: 100%;
+    min-width: 320px;
+    padding: 68px 12px 0px;
+}
+
+.token-title-wrapper {
+    margin-bottom: 32px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+
+.token-title-wrapper .token-title {
+    display: inline-block;
+    height: inherit;
+    color: var(--color-white);
+}
+
+.token-title p {
+    box-sizing: border-box;
+    margin: 0px;
+    min-width: 0px;
+    font-weight: 400;
+    font-size: 36px;
+}
+
+
+.filter-wrapper {
+    display: flex;
+    max-width: 1200px;
+    margin: 0px auto 20px;
+    color: rgb(93, 103, 133);
+    flex-direction: row;
+
+}
+
+.filter-wrapper .filter-dropdowns {
+    display: flex;
+    gap: 8px;
+    height: 40px;
+}
+
+.filter-dropdowns .crypto-currency-drop {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+    border: none;
+    text-align: left;
+}
+
+.crypto-currency-drop #crypto-btn {
+    min-width: 156px;
+}
+
+.crypto-currency-drop button {
+    height: 100%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(41, 50, 73);
+    margin: 0px;
+    padding: 6px 12px 6px 14px;
+    border-radius: 12px;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+    transition-duration: 125ms;
+    border: none;
+    outline: none;
+    user-select: none;
+}
+
+.crypto-btn-content {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    gap: 8px;
+    -webkit-box-align: center;
+    align-items: center;
+    border: none;
+    font-weight: 600;
+    vertical-align: middle;
+}
+
+.text-and-img {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    gap: 8px;
+    -webkit-box-align: center;
+    align-items: center;
+
+}
+
+.text-and-img img {
+    height: 20px;
+    width: 20px;
+}
+
+.text-and-img .icon-drop {
+    padding-top: 1px;
+    color: rgb(76, 130, 251);
+}
+
+.icon-drop i {}
+
+
+.dropdown-items-wrapper {
+    min-width: 240px;
+    max-height: 350px;
+    overflow: auto;
+    background-color: rgb(13, 17, 28);
+    box-shadow: rgba(0, 0, 0, 0.24) 12px 16px 24px, rgba(0, 0, 0, 0.24) 12px 8px 12px, rgba(0, 0, 0, 0.32) 4px 4px 8px;
+    border: 0.5px solid rgba(152, 161, 192, 0.24);
+    border-radius: 12px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    position: absolute;
+    top: 48px;
+    z-index: 100;
+    left: 0px;
+}
+
+.dropdown-items-wrapper .dropdown-item {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 8px;
+
+}
+
+.dropdown-item.drop-i {
+    flex: 1 1 0%;
+    padding: 12px 8px;
+    color: rgb(255, 255, 255);
+}
+
+
+
+.dropdown-item .item-crypto {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    gap: 8px;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.item-crypto img {
+    height: 20px;
+    width: 20px;
+}
+
+#dropdownItem.tick-mark {
+    display: flex;
+}
+
+.tick-mark .tick-icon {
+    color: rgb(76, 130, 251);
+
+}
+
+.tick-mark.active .tick-icon {
+    opacity: 1;
+}

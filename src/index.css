@@ -72,7 +72,7 @@ ul {
   width: 100%;
   min-height: 550px;
   background: linear-gradient(rgba(8, 10, 24, 0) 0%, rgb(8, 10, 24) 45%);
-  z-index: 990;
+  z-index: 110;
   pointer-events: none;
   height: calc(100vh - 52px);
   overflow: hidden;
@@ -105,3 +105,5 @@ ul {
   } */
 
 }
+
+
