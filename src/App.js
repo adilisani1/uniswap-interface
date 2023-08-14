@@ -11,8 +11,11 @@ import Footer from "./components/Footer/Footer";
 import Home from './pages/Home/Home';
 import Swap from "./pages/Swap/Swap";
 import Token from "./pages/Tokens/Token";
+import Pools from "./pages/Pools/Pools";
+import Nfts from "./pages/Nfts/Nfts";
 
 import "./app.css";
+
 
 const Layout = () => {
   return (
@@ -41,6 +44,14 @@ const router = createBrowserRouter([
       {
         path: "/tokens",
         element: <Token />
+      },
+      {
+        path: "/pools",
+        element: <Pools />
+      },
+      {
+        path: "/nfts",
+        element: <Nfts />
       }
     ]
   },
