@@ -36,7 +36,7 @@ const Swap = () => {
                         <div className='cryptocurrency-wrapper'>
                             <div class="image-wrapper " >
                                 <div>
-                                    <img className='icon-image' src='./assets/images/eth-icon.png' alt='eth-icon' />
+                                    <img className='icon-image' src='./assets/images/tokens/eth-icon.png' alt='eth-icon' />
                                 </div>
                             </div>
                             <span class="token-name">ETH</span>

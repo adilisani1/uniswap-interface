@@ -7,6 +7,8 @@
   --card-hover-color: 1px solid rgb(76, 130, 251);
   --card-inside-color: rgb(19, 26, 42);
   --color-white: #FFFFFF;
+  --btn-color: rgb(76, 130, 251);
+  --body-bg: #071220;
 }
 
 * {
@@ -43,7 +45,7 @@ ul {
   position: relative;
   width: 100vw;
   height: 100vh;
-  background: var(--body-bg-color);
+  background: var(--body-bg);
 }
 
 .dark-theme::before {
@@ -105,5 +107,3 @@ ul {
   } */
 
 }
-
-

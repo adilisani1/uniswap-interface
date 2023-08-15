@@ -1,34 +1,89 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Token.css';
 
 const Token = () => {
     const options = [
-        { imgSrc: './assets/images/eth-icon.png', label: 'Ethereum' },
-        { imgSrc: './assets/images/polygon.svg', label: 'Polygon' },
-        { imgSrc: './assets/images/arbitrum.svg', label: 'Arbitrum' },
-        { imgSrc: './assets/images/optimistic.svg', label: 'Optimistic' },
-        { imgSrc: './assets/images/celo.svg', label: 'Celo' },
-        { imgSrc: './assets/images/bnb.svg', label: 'BNB Chain' },
-        { imgSrc: './assets/images/avax.svg', label: 'Avalanche' },
-        { imgSrc: './assets/images/base.svg', label: 'Base' },
+        { imgSrc: './assets/images/tokens/eth-icon.png', label: 'Ethereum' },
+        { imgSrc: './assets/images/tokens/polygon.svg', label: 'Polygon' },
+        { imgSrc: './assets/images/tokens/arbitrum.svg', label: 'Arbitrum' },
+        { imgSrc: './assets/images/tokens/optimistic.svg', label: 'Optimistic' },
+        { imgSrc: './assets/images/tokens/celo.svg', label: 'Celo' },
+        { imgSrc: './assets/images/tokens/bnb.svg', label: 'BNB Chain' },
+        { imgSrc: './assets/images/tokens/avax.svg', label: 'Avalanche' },
+        { imgSrc: './assets/images/tokens/base.svg', label: 'Base' },
     ];
+
+    const updateTime = [
+        { label: '1H' },
+        { label: '1D' },
+        { label: '1W' },
+        { label: '1M' },
+        { label: '1Y' },
+    ]
+
+    // const allTableData = [
+    //     { id: 1, name: 'Token 1', price: '$100', label: 'Ethereum' },
+    //     { id: 2, name: 'Token 2', price: '$200', label: 'Polygon' },
+    //     { id: 3, name: 'Token 3', price: '$150', label: 'Arbitrum' },
+    // ];
 
     const allTableData = [
-        { id: 1, name: 'Token 1', price: '$100', label: 'Ethereum' },
-        { id: 2, name: 'Token 2', price: '$200', label: 'Polygon' },
-        { id: 3, name: 'Token 3', price: '$150', label: 'Arbitrum' },
+        {
+            id: 1,
+            name: 'Ether',
+            symbol: 'ETH',
+            image: 'assets/images/tokens/eth-icon.png',
+            price: '$1,847.65',
+            change: "0.12%",
+            tvl: "$1.2B",
+            volume: "$257.0M",
+            label: 'Ethereum'
 
-    ];
+        },
+
+        {
+            id: 2,
+            name: 'USD Coin',
+            symbol: 'USDC',
+            image: 'assets/images/usdt-polygon-icon.png',
+            price: '$1.00',
+            change: "0.00%",
+            tvl: "617.1M",
+            volume: "$149.4M",
+            label: 'Polygon'
+        },
+    ]
+
 
     // Filter the table data based on the selected option
     const [selectedOption, setSelectedOption] = useState(options[0]);
+    const [updateOption, setUpdateOption] = useState(updateTime[1])
     const [isOpen, setIsOpen] = useState(false);
-    const filteredTableData = allTableData.filter(data => data.label === selectedOption.label);
+    const [handleOpen, setHandleOpen] = useState(false);
+
+    const [filteredTableData, setFilteredTableData] = useState(allTableData);
 
 
     const handleCryptoOpen = () => {
-        setIsOpen(!isOpen)
+        setIsOpen(!isOpen);
+        setHandleOpen(false);
     }
+
+    const handleUpdateOpen = () => {
+        setHandleOpen(!handleOpen);
+        setIsOpen(false);
+    }
+    useEffect(() => {
+        // Filter the table data based on the label of the selectedOption
+        const filteredData = allTableData.filter((data) =>
+            data.label === selectedOption.label
+        );
+
+        // Set the filtered data
+        setFilteredTableData(filteredData);
+    }, [selectedOption]);
+
+
 
     return (
         <React.Fragment>
@@ -42,6 +97,8 @@ const Token = () => {
                 <div className='filter-wrapper'>
                     <div className='filter-dropdowns'>
                         <div className='crypto-currency-drop'>
+
+                            {/* token-btn */}
                             <button id='crypto-btn ' className='me-2' onClick={handleCryptoOpen}>
                                 <div className='crypto-btn-content'>
                                     <div className='text-and-img'>
@@ -54,19 +111,8 @@ const Token = () => {
                                 </div>
                             </button>
 
-                            <div className='token-update'>
-                                <button id='updateBtn' className='update-btn'>
-                                    <div className='token-update-text'>1D
-                                        <span className="">
-                                            <i className="ri-arrow-down-s-line"></i>
-                                        </span>
-                                    </div>
-                                </button>
-                            </div>
 
-
-                            {/* //Drop down */}
-
+                            {/* token-btn dropdown */}
                             {isOpen && <ul className='dropdown-items-wrapper'>
                                 {options.map((option) => (
                                     <li id='dropdownItem' className='dropdown-item'>
@@ -83,7 +129,50 @@ const Token = () => {
                             </ul>
                             }
 
+                            {/* token update button */}
+                            <div className='token-update'>
+                                <button id='updateBtn' className='update-btn' onClick={handleUpdateOpen}>
+                                    <div className='token-update-text'>
+                                        {updateOption.label}
+                                        <span className={`icon-drop ${handleOpen ? 'rotated' : ''}`}>
+                                            <i className="ri-arrow-down-s-line"></i>
+                                        </span>
+                                    </div>
+                                </button>
+
+                                {/* //token update button dropdown */}
+                                {handleOpen && <ul className='igfebL'>
+                                    {updateTime.map((op) => (
+                                        <li id='' className='chstga iCcgEc'>
+                                            <div className='' onClick={() => {
+                                                setUpdateOption(op);
+                                                setHandleOpen(false);
+                                            }}>
+                                                {op.label}
+                                            </div>
+                                        </li>
+                                    ))}
+
+                                </ul>
+                                }
+                            </div>
+
                         </div>
+
+                        <div id='tokenInputWrapper' className="token-input-wrapper">
+                            <div className="">
+                                <input
+                                    data-cy="explore-tokens-search-input"
+                                    type="search"
+                                    placeholder="Filter tokens"
+                                    id="searchBar"
+                                    autoComplete="off"
+                                    className="token-input"
+                                    defaultValue=""
+                                />
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
@@ -109,60 +198,7 @@ const Token = () => {
                     </table>
                 </div> */}
 
-                {/* Data  */}
-                <div className="sc-kjm4pc-4 EQdYt">
-                    <div className="sc-kjm4pc-2 jDpEBx">
-                        <div className="sc-1gm0luq-3 hMzHak">
-                            <button
-                                aria-label="networkFilter"
-                                data-testid="tokens-network-filter-selected"
-                                className="sc-12m0hk4-0 sc-1gm0luq-9 VWsYV kbPnAK"
-                            >
-                                <div className="sc-1gm0luq-4 ckIpkw">
-                                    <div className="sc-1gm0luq-6 efeJnn">
-                                        <img
-                                            src="assets/images/eth-icon.png"
-                                            className="sc-1gm0luq-7 jDZnZF"
-                                        />{" "}
-                                        Ethereum
-                                    </div>
-                                    <span className={`icon-drop`}>
-                                        <i className="ri-arrow-down-s-line"></i>
-                                    </span>
-                                </div>
-                            </button>
-                        </div>
-                        <div className="sc-sagiue-3 cATJqe">
-                            <button
-                                aria-label="timeSelector"
-                                data-testid="time-selector"
-                                className="sc-12m0hk4-0 VWsYV"
-                            >
-                                <div className="sc-sagiue-4 evBCeR">
-                                    1D
-                                    <span className={`icon-drop`}>
-                                        <i className="ri-arrow-down-s-line"></i>
-                                    </span>
-                                </div>
-                            </button>
-                        </div>
-                    </div>
-                    <div className="sc-kjm4pc-2 sc-kjm4pc-3 jDpEBx yEGMT">
-                        <div className="sc-135flk-0 jQnlQZ">
-                            <input
-                                data-cy="explore-tokens-search-input"
-                                type="search"
-                                placeholder="Filter tokens"
-                                id="searchBar"
-                                autoComplete="off"
-                                className="sc-135flk-1 bYBVFE"
-                                defaultValue=""
-                            />
-                        </div>
-                    </div>
-                </div>
-
-
+                {/* Data Head  */}
                 <div className="sc-19z0ycm-0 frDKYg">
                     <div
                         data-testid="header-row"
@@ -261,85 +297,99 @@ const Token = () => {
                         </div>
                         <div className="sc-1bit9h6-0 sc-1bit9h6-14 hJyIyF NpKpm" />
                     </div>
+
+
+
+                    {/* Data Body */}
                     <div className="sc-19z0ycm-1 ejgNi">
-                        <div data-testid="token-table-row-NATIVE">
-                            <a className="sc-1bit9h6-16 kiPA-dv" href="#/tokens/ethereum/NATIVE">
-                                <div className="sc-1bit9h6-1 cQmpaP">
-                                    <div className="sc-1bit9h6-0 sc-1bit9h6-5 hJyIyF bwVaNf">1</div>
-                                    <div
-                                        data-testid="name-cell"
-                                        className="sc-1bit9h6-0 sc-1bit9h6-8 hJyIyF fLXlBW"
-                                    >
-                                        <div className="sc-1bit9h6-2 sc-1bit9h6-3 bvHTKj jqxpYK">
-                                            <div className="sc-12k1pn4-3 eLvYRk">
-                                                <div className="sc-12k1pn4-2 ckpBIe">
-                                                    <img
-                                                        src="assets/images/eth-icon.png"
-                                                        alt="ETH logo"
-                                                        className="sc-12k1pn4-1 bwVixy"
-                                                    />
-                                                </div>
-                                                <div className="sc-12k1pn4-4 epsCee" />
-                                            </div>
-                                            <div className="sc-1bit9h6-0 sc-1bit9h6-17 hJyIyF gKCxsP">
-                                                <div data-cy="token-name" className="sc-1bit9h6-18 kSNzln">
-                                                    Ether
-                                                </div>
-                                                <div className="sc-1bit9h6-0 sc-1bit9h6-19 hJyIyF jRVRlR">
-                                                    ETH
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        data-testid="price-cell"
-                                        className="sc-1bit9h6-0 sc-1bit9h6-6 sc-1bit9h6-9 hJyIyF dQscKx igka-dA"
-                                    >
-                                        <div className="sc-1bit9h6-2 bvHTKj">
-                                            <div className="sc-1bit9h6-0 sc-1bit9h6-12 hJyIyF eNYLXF">
-                                                $1,847.65
-                                                <div className="sc-1bit9h6-0 sc-1bit9h6-11 hJyIyF iQNhmM">
-                                                    <div className="sc-1nu6e54-7 cLYUzV">
+                        {filteredTableData.map((data, index) => (
+                            <div data-testid="token-table-row-NATIVE">
+                                <a className="sc-1bit9h6-16 kiPA-dv" href="#/tokens/ethereum/NATIVE">
+                                    <div className="sc-1bit9h6-1 cQmpaP">
+                                        <div className="sc-1bit9h6-0 sc-1bit9h6-5 hJyIyF bwVaNf">1</div>
+                                        <div
+                                            data-testid="name-cell"
+                                            className="sc-1bit9h6-0 sc-1bit9h6-8 hJyIyF fLXlBW"
+                                        >
+                                            <div className="sc-1bit9h6-2 sc-1bit9h6-3 bvHTKj jqxpYK">
+                                                <div className="sc-12k1pn4-3 eLvYRk">
+                                                    <div className="sc-12k1pn4-2 ckpBIe">
+                                                        <img
+                                                            src={data.image}
+                                                            alt="ETH logo"
+                                                            className="sc-12k1pn4-1 bwVixy"
+                                                        />
                                                     </div>
+                                                    <div className="sc-12k1pn4-4 epsCee" />
+                                                </div>
+                                                <div className="sc-1bit9h6-0 sc-1bit9h6-17 hJyIyF gKCxsP">
+                                                    <div data-cy="token-name" className="sc-1bit9h6-18 kSNzln">
+                                                        {/* Ether */}{data.name}
+                                                    </div>
+                                                    <div className="sc-1bit9h6-0 sc-1bit9h6-19 hJyIyF jRVRlR">
+                                                        {/* ETH */}{data.symbol}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-testid="price-cell"
+                                            className="sc-1bit9h6-0 sc-1bit9h6-6 sc-1bit9h6-9 hJyIyF dQscKx igka-dA"
+                                        >
+                                            <div className="sc-1bit9h6-2 bvHTKj">
+                                                <div className="sc-1bit9h6-0 sc-1bit9h6-12 hJyIyF eNYLXF">
+                                                    {data.price}
+                                                    {/* $1,847.65 */}
+                                                    <div className="sc-1bit9h6-0 sc-1bit9h6-11 hJyIyF iQNhmM">
+                                                        <div className="sc-1nu6e54-7 cLYUzV">
+                                                        </div>
 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-testid="percent-change-cell"
+                                            className="sc-1bit9h6-0 sc-1bit9h6-6 sc-1bit9h6-10 hJyIyF dQscKx fLOBMM"
+                                        >
+                                            <div className="sc-1bit9h6-2 bvHTKj">
+                                                <div className="sc-1nu6e54-7 cLYUzV">
+
+                                                </div>
+                                                <span className="sc-1nu6e54-2 braSjM">
+                                                    {/* 0.05% */}{data.change}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-testid="tvl-cell"
+                                            className="sc-1bit9h6-0 sc-1bit9h6-6 sc-1bit9h6-7 hJyIyF dQscKx fLGPoq"
+                                        >
+                                            <div className="sc-1bit9h6-2 bvHTKj">
+                                                {/* $1.2B */}{data.tvl}
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-testid="volume-cell"
+                                            className="sc-1bit9h6-0 sc-1bit9h6-6 sc-1bit9h6-20 hJyIyF dQscKx gEaRbj"
+                                        >
+                                            <div className="sc-1bit9h6-2 bvHTKj">
+                                                {/* $133.9M */} {data.volume}
+                                            </div>
+                                        </div>
+                                        <div className="sc-1bit9h6-0 sc-1bit9h6-14 hJyIyF NpKpm">
+                                            <div className="sc-1bit9h6-0 sc-1bit9h6-15 hJyIyF FLymZ">
+                                                <div style={{ width: "100%", height: "100%" }}>
+                                                    graph-img
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div
-                                        data-testid="percent-change-cell"
-                                        className="sc-1bit9h6-0 sc-1bit9h6-6 sc-1bit9h6-10 hJyIyF dQscKx fLOBMM"
-                                    >
-                                        <div className="sc-1bit9h6-2 bvHTKj">
-                                            <div className="sc-1nu6e54-7 cLYUzV">
+                                </a>
+                            </div>
+                        ))}
 
-                                            </div>
-                                            <span className="sc-1nu6e54-2 braSjM">0.05%</span>
-                                        </div>
-                                    </div>
-                                    <div
-                                        data-testid="tvl-cell"
-                                        className="sc-1bit9h6-0 sc-1bit9h6-6 sc-1bit9h6-7 hJyIyF dQscKx fLGPoq"
-                                    >
-                                        <div className="sc-1bit9h6-2 bvHTKj">$1.2B</div>
-                                    </div>
-                                    <div
-                                        data-testid="volume-cell"
-                                        className="sc-1bit9h6-0 sc-1bit9h6-6 sc-1bit9h6-20 hJyIyF dQscKx gEaRbj"
-                                    >
-                                        <div className="sc-1bit9h6-2 bvHTKj">$133.9M</div>
-                                    </div>
-                                    <div className="sc-1bit9h6-0 sc-1bit9h6-14 hJyIyF NpKpm">
-                                        <div className="sc-1bit9h6-0 sc-1bit9h6-15 hJyIyF FLymZ">
-                                            <div style={{ width: "100%", height: "100%" }}>
-                                                xyz
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div className="sc-19z0ycm-1 ejgNi">
+                        {/* <div className="sc-19z0ycm-1 ejgNi">
                             <div data-testid="token-table-row-NATIVE">
                                 <a className="sc-1bit9h6-16 kiPA-dv" href="#/tokens/ethereum/NATIVE">
                                     <div className="sc-1bit9h6-1 cQmpaP">
@@ -416,7 +466,7 @@ const Token = () => {
                                     </div>
                                 </a>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

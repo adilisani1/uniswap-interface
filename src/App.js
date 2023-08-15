@@ -20,7 +20,7 @@ import "./app.css";
 const Layout = () => {
   return (
     <div className="app">
-      <Navbar />
+      {/* <Navbar /> */}
       <Outlet />
       {/* <Footer /> */}
     </div>
@@ -52,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: "/nfts",
         element: <Nfts />
+      },
+      {
+        path: "/nav",
+        element: <Navbar />
       }
     ]
   },
