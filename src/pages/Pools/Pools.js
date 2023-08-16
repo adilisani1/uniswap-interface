@@ -7,7 +7,7 @@ const Pools = () => {
             <div id='poolsContainer' className='pools-container'>
                 <div className='pool-wrapper'>
                     <div className='pools-content' style={{ width: "100%" }}>
-                        <div id="poolsHead" className='pools-head-content ' style={{ minWidth: 0, boxSizing: "border-box" }} >
+                        <div id="poolsHead" className='pools-head-content' style={{ minWidth: 0, boxSizing: "border-box" }} >
                             <p className="pools-left">Pools</p>
                             <div id='poolRight' className="pool-right right knSXeI">
                                 <div id="moreDrop" className="more-drop">

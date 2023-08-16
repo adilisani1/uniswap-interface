@@ -27,16 +27,21 @@
 }
 
 .home-page {
-    position: absolute;
-    top: 0px;
-    padding: 72px 0px 0px;
-    width: 100%;
+    /* position: absolute; */
+    /* top: 0px; */
+    /* padding: 72px 0px 0px; */
+    /* width: 100%; */
     display: flex;
     flex-direction: column;
-    -webkit-box-align: center;
     align-items: center;
     scroll-behavior: smooth;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    padding: 72px 0px 5rem;
+    align-items: center;
 }
 
 .home-page .card-wrapper {

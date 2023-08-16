@@ -13,16 +13,18 @@ import Swap from "./pages/Swap/Swap";
 import Token from "./pages/Tokens/Token";
 import Pools from "./pages/Pools/Pools";
 import Nfts from "./pages/Nfts/Nfts";
+import PrivacyModal from './utils/PrivacyModal/PrivacyModal';
 
 import "./app.css";
+import Vote from "./pages/Vote/Vote";
 
 
 const Layout = () => {
   return (
     <div className="app">
-      {/* <Navbar /> */}
+      <Navbar />
       <Outlet />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   )
 }
@@ -54,8 +56,12 @@ const router = createBrowserRouter([
         element: <Nfts />
       },
       {
-        path: "/nav",
-        element: <Navbar />
+        path: "/vote",
+        element: <Vote />
+      },
+      {
+        path: "/privacy",
+        element: <PrivacyModal />
       }
     ]
   },

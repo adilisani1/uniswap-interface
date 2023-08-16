@@ -279,6 +279,12 @@ a {
     position: relative;
     width: 100%;
     margin-bottom: 20px;
+
+}
+
+.fjOrSN .back-arrow {
+    font-size: 25px;
+    cursor: pointer;
 }
 
 .ewaNd {
@@ -306,15 +312,7 @@ a {
     margin-bottom: 24px;
 }
 
-.fhPvJh {
-    width: 100%;
-    display: flex;
-    padding: 0px;
-    -webkit-box-align: center;
-    align-items: center;
-    -webkit-box-pack: start;
-    justify-content: flex-start;
-}
+
 
 .hJYFVB {
     box-sizing: border-box;
@@ -390,10 +388,6 @@ a {
     transition: all 250ms ease 0s;
 }
 
-.kHFzEX {
-    flex-wrap: wrap;
-}
-
 .eqaHKd {
     display: flex;
     flex-direction: row;
@@ -448,11 +442,10 @@ button {
 .fhPvJh {
     width: 100%;
     display: flex;
-    padding: 0px;
+    padding: 4px;
     -webkit-box-align: center;
     align-items: center;
     -webkit-box-pack: start;
-    justify-content: flex-start;
 }
 
 .iCxowP {
