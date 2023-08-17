@@ -30,11 +30,12 @@ const Pools = () => {
                 <main className='pools-connect-wallet-card'>
                     <div className='pools-connect-wallet-card-wrapper'>
                         <div className="sc-sx9n2y-0 kandXm css-hzsvkq">
-                            <img
+                            {/* <img
                                 src='/assets/images/inbox-one.png'
                                 alt='inbox'
                                 className='inbox'
-                                style={{ marginTop: "2em" }} />
+                                style={{ marginTop: "2em" }} /> */}
+                            <i className="inbox ri-inbox-2-line"></i>
                             <div>Your active V3 liquidity positions will appear here.</div>
                             <button id='poolsConnectBtn' className="pools-connect-wallet-btn pool-btn">
                                 Connect a wallet
@@ -49,9 +50,9 @@ const Pools = () => {
                         href="https://support.uniswap.org/hc/en-us/categories/8122334631437-Providing-Liquidity-"
                         className="koQguv kXQhFl">
                         <div className="sc-1kykgp9-2 sc-1dn0qar-3 jdTKGL dzTOMd">
-                            <div className="sc-sx9n2y-0 EngNh sc-1dn0qar-2 cHXTrK css-1lohbqv">Learn about providing liquidity ↗
+                            <div className="sc-sx9n2y-0 linking sc-1dn0qar-2 cHXTrK css-1lohbqv">Learn about providing liquidity ↗
                             </div>
-                            <div className="sc-sx9n2y-0 EngNh css-1jljtub" style={{ alignItems: "center", display: "flex" }} >Check out our v3 LP walkthrough and migration guides.</div>
+                            <div className="sc-sx9n2y-0 linking css-1jljtub" style={{ alignItems: "center", display: "flex" }} >Check out our v3 LP walkthrough and migration guides.</div>
                         </div>
                     </a>
                     <a target="_blank" rel="noopener noreferrer"
@@ -59,8 +60,8 @@ const Pools = () => {
                         data-testid="cta-infolink"
                         className="sc-7yzmni-9 koQguv sc-1dn0qar-1 kXQhFl">
                         <div className="sc-1kykgp9-2 sc-1dn0qar-3 jdTKGL dzTOMd">
-                            <div className="sc-sx9n2y-0 EngNh sc-1dn0qar-2 cHXTrK css-1lohbqv" style={{ alignSelf: 'flex-start' }}>Top pools ↗</div>
-                            <div className="sc-sx9n2y-0 EngNh css-1jljtub" style={{ alignSelf: 'flex-start' }}>Explore Uniswap Analytics.</div>
+                            <div className="sc-sx9n2y-0 linking sc-1dn0qar-2 cHXTrK css-1lohbqv" style={{ alignSelf: 'flex-start' }}>Top pools ↗</div>
+                            <div className="sc-sx9n2y-0 linking css-1jljtub" style={{ alignSelf: 'flex-start' }}>Explore Uniswap Analytics.</div>
                         </div>
                     </a>
                 </section>

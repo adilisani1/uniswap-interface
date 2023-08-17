@@ -12,7 +12,7 @@
 .hirdVF.sticky {
     display: flex;
     flex-flow: row;
-    background-color: rgb(13, 17, 28);
+    background-color: var(--sticky-nav);
     border-bottom: 1px solid rgba(152, 161, 192, 0.24);
     width: 100%;
     -webkit-box-pack: justify;
@@ -52,14 +52,14 @@
 
 .left-nav .logo-wrap {
     display: flex;
-    margin-right: 12px;
+    margin-right: 6px;
     align-items: center;
     cursor: pointer;
 }
 
 .left-nav .logo-image {
-    width: 48px;
-    height: 48px;
+    width: 50px;
+    height: 52px;
 }
 
 .left-nav .nav-list {
@@ -72,12 +72,14 @@
 
 
 .nav-item .nav-link {
-    color: #98a1c0;
+    /* color: #98a1c0; */
+    color: var(--text-color);
 
 }
 
 .dropdown .nav-link {
-    color: #98a1c0;
+    /* color: #98a1c0; */
+    color: var(--text-color);
 }
 
 .dropdown-menu {
@@ -398,21 +400,19 @@
     background-color: #f0f0f0;
 }
 
-
 .right-nav .connect {
     display: flex;
     flex-flow: row;
     -webkit-box-align: center;
     align-items: center;
-    background-color: rgba(76, 130, 251, 0.24);
+    background-color: var(--connect-btn);
     border-radius: 9999px;
     border: none;
     padding: 0px;
     height: 40px;
-    color: rgb(76, 130, 251);
+    color: var(--btn-color);
     transition: color 125ms ease-in 0s;
 }
-
 
 .connect .connect-btn {
     background-color: transparent;
@@ -425,9 +425,6 @@
     padding: 10px 12px;
     color: inherit;
 }
-
-
-
 
 /* Media QUery */
 @media screen and (min-width: 640px) {

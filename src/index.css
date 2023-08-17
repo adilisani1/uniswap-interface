@@ -1,15 +1,72 @@
+/* ---------------- Dark Theme ----------------------- */
 :root {
+  --body-color: #2d2d2d;
   --body-bg-color: linear-gradient(rgb(32, 39, 56) 0%, rgb(7, 8, 22) 100%);
+  /* Swap page */
   --card-bg: rgb(13, 17, 28);
-  --text-color: rgb(152, 161, 192);
+  --card-inside-color: rgb(19, 26, 42);
+  --switch-button: rgb(19, 26, 42);
+  --switch-button-border: rgb(13, 17, 28);
+  --connect-btn: rgba(76, 130, 251, 0.24);
+  --open-currency-btn-bg: rgb(41, 50, 73);
+  --open-currency-btn-top: #ffffff;
+  --open-currency-btn-color: #ffffff;
+  /* Home page */
+  --home-cards: rgb(19, 26, 42);
+  /* --text-color: rgb(152, 161, 192); */
+  --text-color: #7F9BD4;
   --body-bg-shade: radial-gradient(72.04% 72.04% at 50% 3.99%, rgb(255, 55, 235) 0%, rgba(166, 151, 255, 0) 100%);
   --card-border-color: 1px solid rgba(152, 161, 192, 0.24);
   --card-hover-color: 1px solid rgb(76, 130, 251);
-  --card-inside-color: rgb(19, 26, 42);
   --color-white: #FFFFFF;
   --btn-color: rgb(76, 130, 251);
-  --body-bg: #071220;
+  /* Body Background */
+  --body-bg: linear-gradient(180deg, #202738 0, #070816 100%);
+  --back-drop: linear-gradient(rgba(8, 10, 24, 0) 0%, rgb(8, 10, 24) 45%);
+  /* --back-drop-two: linear-gradient(rgb(0 0 0 / 60%) 0%, rgb(4 4 6) 60%); */
+  ;
+  --cards-background: linear-gradient(179.82deg, rgba(0, 0, 0, 0) 0.16%, rgb(5, 0, 38) 99.85%);
+  --protocol-card: radial-gradient(101.8% 4091.31% at 0% 0%, rgb(70, 115, 250) 0%, rgb(150, 70, 250) 100%);
+  /* Sticky-Nav */
+  --sticky-nav: #000;
+  /* Tokens page */
+  --eth-dropdown: rgb(232, 236, 251);
+  --token-border-color: 1px solid rgba(152, 161, 192, 0.24);
 }
+
+
+/* ------------------------------------------------------------
+ ---------------- Light Theme -----------------------
+------------------------------------------------------------- */
+[data-theme='light'] {
+  /* Body Background */
+  --body-color: radial-gradient(100% 100% at 50% 0, rgba(255, 184, 226, .51) 0, rgba(255, 255, 255, 0) 100%),
+    #fff;
+  --body-bg: radial-gradient(100% 100% at 50% 0, rgba(255, 184, 226, .51) 0, rgba(255, 255, 255, 0) 100%), #fff;
+  --back-drop: linear-gradient(rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 45%);
+  --cards-background: linear-gradient(179.82deg, rgba(255, 255, 255, 0) 0.16%, rgb(234, 234, 234) 99.85%);
+  /* Swap page */
+  --card-bg: rgb(255, 255, 255);
+  --card-inside-color: rgb(245, 246, 252);
+  --switch-button: rgb(245, 246, 252);
+  --switch-button-border: rgb(255, 255, 255);
+  --color-white: #000;
+  --connect-btn: rgba(251, 17, 142, 0.12);
+  --btn-color: rgb(251, 17, 142);
+  --open-currency-btn-color: #ffffff;
+  --open-currency-btn-bg: rgb(232, 236, 251);
+  --open-currency-btn-top: #000000;
+  /* Home page */
+  --home-cards: #ffff;
+  --protocol-card: linear-gradient(93.06deg, rgb(255, 0, 199) 2.66%, rgb(255, 159, 251) 98.99%);
+  /* Sticky-Nav */
+  --sticky-nav: #fff;
+  /* Tokens page */
+  --eth-dropdown: rgb(232, 236, 251);
+  --token-border-color: 1px solid rgb(210, 217, 238);
+}
+
+
 
 * {
   margin: 0;
@@ -26,6 +83,7 @@ body {
   padding: 0;
   font-family: 'Inter', sans-serif;
   overflow-x: hidden !important;
+  background: var(--body-bg);
 }
 
 a {
@@ -48,7 +106,7 @@ ul {
   position: relative;
   width: 100vw;
   height: 100vh;
-  background: var(--body-bg);
+  /* background: var(--body-bg); */
 }
 
 .dark-theme::before {
@@ -76,7 +134,8 @@ ul {
   bottom: 0px;
   width: 100%;
   min-height: 550px;
-  background: linear-gradient(rgba(8, 10, 24, 0) 0%, rgb(8, 10, 24) 45%);
+  background: var(--back-drop);
+  /* background: linear-gradient(rgba(8, 10, 24, 0) 0%, rgb(8, 10, 24) 45%); */
   z-index: 110;
   pointer-events: none;
   height: calc(100vh - 52px);

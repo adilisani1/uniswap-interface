@@ -2,7 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import './Navbar.css';
 import Modal from '../Modal/Modal';
 
-const Navbar = () => {
+const Navbar = ({ switchTheme, currentTheme }) => {
+    const logoImage = currentTheme === 'dark' ? 'assets/images/logo/logo-two.png' : 'assets/images/logo/logo-two-black.png';
+
     const [isActiveHeader, setIsActiveHeader] = useState(false);
 
     const [isNavOpen, setIsNavOpen] = useState(false);
@@ -67,7 +69,6 @@ const Navbar = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-
     return (
         <div className={`sc-1dv6j2d-2 hirdVF ${isActiveHeader ? "sticky" : ""}`}>
             <header id="header" className="header">
@@ -75,7 +76,7 @@ const Navbar = () => {
                     {/* left________Nav */}
                     <div className="left-nav">
                         <a className="logo-wrap" href="/">
-                            <img className="logo-image" src="assets/images/logo/logo-two.png" />
+                            <img className="logo-image" src={logoImage} />
                         </a>
                         <div className="nav-menu" id="nav-menu">
                             <ul className="list-unstyled nav-list">
@@ -89,7 +90,7 @@ const Navbar = () => {
                                     <a className="nav-link" href="/nfts">NFTs</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/nfts">Pools</a>
+                                    <a className="nav-link" href="/pools">Pools</a>
                                 </li>
 
                                 <li className="nav-item dropdown">
@@ -114,7 +115,7 @@ const Navbar = () => {
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                             >
-                                                <img src='/images/discord-icon.svg' />
+                                                <img src='assets/images/discord-icon.svg' />
                                             </a>
                                             <a
                                                 className="twitter"
@@ -122,7 +123,7 @@ const Navbar = () => {
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                             >
-                                                <img src='/images/twitter-icon.svg' />
+                                                <img src='assets/images/twitter-icon.svg' />
                                             </a>
                                             <a
                                                 className="github"
@@ -130,11 +131,13 @@ const Navbar = () => {
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                             >
-                                                <img style={{ width: "25px" }} src='/images/github-icon.svg' />
+                                                <img style={{ width: "25px" }} src='assets/images/github-icon.svg' />
                                             </a>
                                         </div>
 
                                     </ul>
+
+
                                 </li>
                             </ul>
                         </div>
@@ -210,7 +213,10 @@ const Navbar = () => {
                     </div>
                 </nav>
             </header>
-            <Modal isNavOpen={isNavOpen} setIsNavOpen={setIsNavOpen} />
+            <Modal
+                isNavOpen={isNavOpen}
+                setIsNavOpen={setIsNavOpen}
+                switchTheme={switchTheme} />
         </div>
 
     );

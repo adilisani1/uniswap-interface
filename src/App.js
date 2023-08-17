@@ -17,14 +17,25 @@ import PrivacyModal from './utils/PrivacyModal/PrivacyModal';
 
 import "./app.css";
 import Vote from "./pages/Vote/Vote";
+import useLocalStorage from "use-local-storage";
 
 
 const Layout = () => {
+
+  const [theme, setTheme] = useLocalStorage('light', 'dark');
+
+  function switchTheme() {
+    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+    console.log(theme)
+  }
+
+
   return (
-    <div className="app">
-      <Navbar />
+    <div className="app" data-theme={theme}>
+      <Navbar switchTheme={switchTheme} currentTheme={theme} />
       <Outlet />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }
@@ -71,8 +82,9 @@ const router = createBrowserRouter([
 
 
 function App() {
+
   return (
-    <div>
+    <div className="app" >
       <RouterProvider router={router} />
     </div>
   );

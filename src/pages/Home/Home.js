@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './Home.css';
+import Footer from '../../components/Footer/Footer';
 
 const Home = () => {
     return (
@@ -171,9 +172,6 @@ const Home = () => {
                 </div>
 
 
-
-
-
                 {/* Cards Section */}
                 <section className='container-cards'>
                     <div className='col-2 container-wrapper'>
@@ -259,6 +257,7 @@ const Home = () => {
 
                     </div>
 
+                    <Footer />
 
                 </section>
 

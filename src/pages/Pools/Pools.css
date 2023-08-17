@@ -203,10 +203,10 @@
 }
 
 .kEIpOD {
-    background-color: rgb(76, 130, 251);
-    font-size: 20px;
+    background-color: var(--btn-color);
+    /* font-size: 20px; */
     font-weight: 600;
-    padding: 16px;
+    /* padding: 16px; */
     color: rgb(245, 246, 252);
 }
 
@@ -219,7 +219,7 @@
 
 /* Connect WALLET CARD */
 .pools-connect-wallet-card {
-    background-color: rgb(13, 17, 28);
+    background-color: var(--card-bg);
     border: 1px solid rgba(152, 161, 192, 0.24);
     padding: 0px;
     border-radius: 16px;
@@ -241,6 +241,11 @@
     margin: auto;
     max-width: 300px;
     min-height: 25vh;
+}
+
+.pools-connect-wallet-card-wrapper .inbox {
+    font-size: 45px;
+    color: var(--color-white);
 }
 
 .css-hzsvkq {
@@ -267,7 +272,7 @@
     font-size: 20px;
     font-weight: 600;
     padding: 16px;
-    color: var(--color-white);
+    color: var(--open-currency-btn-color);
     margin-top: 2em;
     margin-bottom: 2em;
     padding: 8px 16px;
@@ -379,8 +384,8 @@
     font-weight: 600;
 }
 
-.EngNh {
-    color: rgb(255, 255, 255);
+.linking {
+    color: var(--color-white);
 }
 
 .css-1jljtub {
@@ -389,4 +394,5 @@
     min-width: 0px;
     font-weight: 400;
     font-size: 16px;
+    color: var(--color-white);
 }

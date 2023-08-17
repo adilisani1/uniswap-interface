@@ -148,10 +148,10 @@ element.style {
 }
 
 .kEIpOD {
-    background-color: rgb(76, 130, 251);
-    font-size: 20px;
+    background-color: var(--btn-color);
+    /* font-size: 20px; */
     font-weight: 600;
-    padding: 16px;
+    /* padding: 16px; */
     color: rgb(245, 246, 252);
 }
 
@@ -199,9 +199,11 @@ a {
     padding: 4px;
     width: fit-content;
 }
+
 button {
     user-select: none;
 }
+
 .cCvVVM {
     animation: 0.1s ease-in 0s 1 normal none running none;
     background: rgb(93, 103, 133);
@@ -210,6 +212,7 @@ button {
     margin-right: 2.2em;
     width: 24px;
 }
+
 .dgkaVU {
     padding: 0.75rem 1rem;
     width: 100%;
@@ -227,10 +230,12 @@ button {
     text-decoration: none;
     background-color: rgb(19, 26, 42);
 }
+
 .gyFpxT {
     opacity: 0.6;
     flex: 0 0 40px;
 }
+
 .Dzbgo {
     font-weight: 600;
     flex: 1 1 0%;
@@ -239,6 +244,7 @@ button {
     overflow-wrap: break-word;
     padding-right: 10px;
 }
+
 .dYbPAW {
     font-size: 0.825rem;
     font-weight: 600;
@@ -252,6 +258,7 @@ button {
     flex: 0 0 100px;
     text-align: center;
 }
+
 .cYSgdm {
     font-size: 0.825rem;
     font-weight: 600;
@@ -265,9 +272,8 @@ button {
     flex: 0 0 100px;
     text-align: center;
 }
+
 .abc {
     -webkit-box-pack: justify;
     justify-content: space-between;
 }
-
-

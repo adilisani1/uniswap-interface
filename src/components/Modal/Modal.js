@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import './Modal.css';
 
-const Modal = ({ isNavOpen, setIsNavOpen }) => {
+const Modal = ({ isNavOpen, setIsNavOpen, switchTheme }) => {
     const [isSecondModalOpen, setSecondModalOpen] = useState(false);
 
     const handleButtonClick = () => {
         setSecondModalOpen(true);
     };
+
+    console.log(switchTheme)
 
     return (
         <>
@@ -207,21 +209,22 @@ const Modal = ({ isNavOpen, setIsNavOpen }) => {
                                                         Preferences
                                                     </div>
                                                     <div className="sc-k6pz4u-2 bqhmxH">
-                                                        <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB fhPvJh">
+                                                        <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB xyz1">
                                                             <div width="40%" className="sc-bczRLJ sc-nrd8cx-0 gxbXPT feIyWM">
                                                                 <div className="sc-sx9n2y-0 kandXm css-1aekuku">Theme</div>
                                                             </div>
                                                             <div width="60%" className="sc-bczRLJ sc-nrd8cx-0 foniQS jGtsjx">
-                                                                <div className="sc-bczRLJ sc-nrd8cx-0 sc-1euncec-1 hJYFVB fhPvJh etXiLa">
+                                                                <div className="sc-bczRLJ sc-nrd8cx-0 sc-1euncec-1 hJYFVB xyz1 etXiLa">
                                                                     <div
-                                                                        data-testid="theme-auto"
-                                                                        className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-3 sc-1euncec-0 hJYFVB fhPvJh kHFzEX gurCES"
+                                                                        data-testid="theme-auto" onClick={() => switchTheme()}
+                                                                        className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-3 sc-1euncec-0 hJYFVB xyz1 kHFzEX gurCES"
                                                                     >
                                                                         <div className="sc-sx9n2y-0 kandXm css-rjqmed">Auto</div>
                                                                     </div>
                                                                     <div
                                                                         data-testid="theme-lightmode"
-                                                                        className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-3 sc-1euncec-0 hJYFVB fhPvJh kHFzEX eqaHKd"
+                                                                        className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-3 sc-1euncec-0 hJYFVB xyz1 kHFzEX eqaHKd"
+
                                                                     >
                                                                         <svg
                                                                             xmlns="http://www.w3.org/2000/svg"
@@ -247,8 +250,8 @@ const Modal = ({ isNavOpen, setIsNavOpen }) => {
                                                                         <div className="sc-sx9n2y-0 kandXm css-rjqmed" />
                                                                     </div>
                                                                     <div
-                                                                        data-testid="theme-darkmode"
-                                                                        className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-3 sc-1euncec-0 hJYFVB fhPvJh kHFzEX gurCES"
+                                                                        data-testid="theme-darkmode "
+                                                                        className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-3 sc-1euncec-0 hJYFVB xyz1 kHFzEX gurCES"
                                                                     >
                                                                         <svg
                                                                             xmlns="http://www.w3.org/2000/svg"
@@ -268,9 +271,9 @@ const Modal = ({ isNavOpen, setIsNavOpen }) => {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB fhPvJh">
+                                                        <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB xyz1">
                                                             <div className="sc-1kykgp9-0 sc-1opkkz6-0 iCxowP kMuqSe">
-                                                                <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB fhPvJh">
+                                                                <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB xyz1">
                                                                     <div className="sc-sx9n2y-0 kivXvb css-1aekuku">
                                                                         Hide small balances
                                                                     </div>
@@ -284,14 +287,14 @@ const Modal = ({ isNavOpen, setIsNavOpen }) => {
                                                                 <span className="sc-1poje5t-1 jsjUXs" />
                                                             </button>
                                                         </div>
-                                                        <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB fhPvJh">
+                                                        <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB xyz1">
                                                             <div className="sc-1kykgp9-0 sc-1opkkz6-0 iCxowP kMuqSe">
-                                                                <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB fhPvJh">
+                                                                <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB xyz1">
                                                                     <div className="sc-sx9n2y-0 kivXvb css-1aekuku">
                                                                         Allow analytics
                                                                     </div>
                                                                 </div>
-                                                                <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB fhPvJh">
+                                                                <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB xyz1">
                                                                     <div className="sc-sx9n2y-0 bftkTM css-mx5ldy">
                                                                         We use anonymized data to enhance your experience with
                                                                         Uniswap Labs products.
@@ -306,9 +309,9 @@ const Modal = ({ isNavOpen, setIsNavOpen }) => {
                                                                 <span className="sc-1poje5t-1 jsjUXs" />
                                                             </button>
                                                         </div>
-                                                        <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB fhPvJh">
+                                                        <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB xyz1">
                                                             <div className="sc-1kykgp9-0 sc-1opkkz6-0 iCxowP kMuqSe">
-                                                                <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB fhPvJh">
+                                                                <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB xyz1">
                                                                     <div className="sc-sx9n2y-0 kivXvb css-1aekuku">
                                                                         Show testnets
                                                                     </div>
