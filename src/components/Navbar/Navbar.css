@@ -9,6 +9,19 @@
     z-index: 1000;
 }
 
+.hirdVF.sticky {
+    display: flex;
+    flex-flow: row;
+    background-color: rgb(13, 17, 28);
+    border-bottom: 1px solid rgba(152, 161, 192, 0.24);
+    width: 100%;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    position: fixed;
+    top: 0px;
+    z-index: 1000;
+}
+
 /* Navbar */
 .header {
     padding: 20px 12px;
@@ -33,14 +46,14 @@
     justify-content: flex-start;
     flex: 1 1;
     width: 100%;
-    /* align-items: center; */
+    align-items: center;
 
 }
 
 .left-nav .logo-wrap {
     display: flex;
     margin-right: 12px;
-    /* align-items: center; */
+    align-items: center;
     cursor: pointer;
 }
 
@@ -138,9 +151,8 @@
 
 /* Custom Search Dropdown */
 .custom-search-dropdown {
-    /* background-color: rgba(255, 255, 255, 0.07);
-    background-color: rgba(255, 255, 255, 0.07); */
-    background: (255 255 255 / 7%);
+    background-color: rgba(255, 255, 255, 0.07);
+    background-color: rgba(255, 255, 255, 0.07);
     border-radius: 12px;
     -webkit-backdrop-filter: blur(60px);
     backdrop-filter: blur(60px);
@@ -158,8 +170,8 @@
 .custom-search-inside {
     display: flex;
     align-items: center;
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-top: 9.5px;
+    padding-bottom: 9.5px;
     padding-right: 16px;
     padding-left: 16px;
     -webkit-tap-highlight-color: transparent;
@@ -169,11 +181,7 @@
     backdrop-filter: blur(60px);
     gap: 12px;
     flex-direction: row;
-    background: rgb(255 255 255 / 7%);
-    /* background-color: #98a1c0; */
-    border-style: solid;
-    border-width: 1px;
-    border-bottom-width: 1px;
+    background-color: rgb(255 255 255 / 7%);
     border-radius: 12px;
     color: #98a1c0;
     width: 100vw;
@@ -198,6 +206,8 @@
     box-sizing: border-box;
     vertical-align: baseline;
     -webkit-tap-highlight-color: transparent;
+    color: #98a1c0;
+    font-size: 20px;
 }
 
 .custom-search-dropdown input {
@@ -211,29 +221,35 @@
     border: none;
     border: var(--rgw6ez20);
     background: none;
-
+    background: var(--rgw6ezw);
     padding: 0;
     width: 100%;
     height: 100%;
     line-height: 24px;
+    color: var(--color-white);
 
 }
 
+.custom-search-inside input::placeholder {
+    color: #98a1c0;
+    opacity: 1;
+}
 
 .slash {
-    /* background-color: rgba(81, 110, 236, 0.408); */
-    color: rgb(14, 15, 21);
+    background-color: rgba(173, 188, 255, 0.24);
+    color: rgb(152, 161, 192);
     padding: 0px 8px;
-    background: rgb(255 255 255 / 7%);
     width: 20px;
     height: 20px;
     border-radius: 4px;
     font-size: 12px;
     font-weight: 800;
     line-height: 16px;
+    display: flex;
     -webkit-box-align: center;
     align-items: center;
     opacity: 0.6;
+    backdrop-filter: blur(60px);
 
 }
 
@@ -407,41 +423,60 @@
     font-weight: 600;
     font-size: 16px;
     padding: 10px 12px;
-
     color: inherit;
 }
 
 
 
 
-
 /* Media QUery */
-@media screen and (min-width: 1536px) {
+@media screen and (min-width: 640px) {
+
+    .custom-search-dropdown {
+        width: auto;
+    }
 
     .custom-search-inside {
-        width: 520px;
+        width: 360px;
     }
+
+    .dropdown-menu .icons-wrapper {
+
+        justify-content: flex-start;
+    }
+
 }
 
-@media screen and (min-width: 1280px) {
-    .custom-search-inside {
-        width: 480px;
+@media screen and (min-width: 768px) {
+    .left-nav .nav-list {
+        display: flex;
     }
+
+
+
+    .center-nav {
+        justify-content: flex-end;
+
+    }
+
+    .inside-search {
+        width: 330px;
+    }
+
+
 }
 
 @media screen and (min-width: 1024px) {
 
-    /* Center Nav Section */
     .center-nav {
-        justify-content: flex-end;
-
+        justify-content: center;
     }
 
     .custom-search-dropdown {
         display: flex;
     }
 
-    .custom-search-inside {
+    .inside-search {
         width: 360px;
     }
 
@@ -458,36 +493,15 @@
     }
 }
 
-@media screen and (min-width: 768px) {
-    .left-nav .nav-list {
-        display: flex;
+@media screen and (min-width: 1280px) {
+    .inside-search {
+        width: 480px;
     }
-
-    .center-nav {
-        justify-content: center;
-    }
-
-
-    .custom-search-inside {
-        width: 330px;
-    }
-
-
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 1536px) {
 
-    .custom-search-dropdown {
-        width: auto;
+    .inside-search {
+        width: 520px;
     }
-
-    .custom-search-inside {
-        width: 360px;
-    }
-
-    .dropdown-menu .icons-wrapper {
-
-        justify-content: flex-start;
-    }
-
 }

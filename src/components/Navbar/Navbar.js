@@ -3,6 +3,8 @@ import './Navbar.css';
 import Modal from '../Modal/Modal';
 
 const Navbar = () => {
+    const [isActiveHeader, setIsActiveHeader] = useState(false);
+
     const [isNavOpen, setIsNavOpen] = useState(false);
 
     const [searchTerm, setSearchTerm] = useState('');
@@ -38,20 +40,36 @@ const Navbar = () => {
         option.label.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
+    // useEffect(() => {
+    //     document.addEventListener('click', handleClickOutside);
+    //     return () => {
+    //         document.removeEventListener('click', handleClickOutside);
+    //     };
+    // }, []);
+
+    // const handleClickOutside = (event) => {
+    //     if (ref.current && !ref.current.contains(event.target)) {
+    //         setSearchOpen(false);
+    //     }
+    // };
+
+
+    //For header
     useEffect(() => {
-        document.addEventListener('click', handleClickOutside);
-        return () => {
-            document.removeEventListener('click', handleClickOutside);
-        };
+        function handleScroll() {
+            if (window.pageYOffset > 50) {
+                setIsActiveHeader(true);
+            } else {
+                setIsActiveHeader(false);
+            }
+        }
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    const handleClickOutside = (event) => {
-        if (ref.current && !ref.current.contains(event.target)) {
-            setSearchOpen(false);
-        }
-    };
+
     return (
-        <div className="sc-1dv6j2d-2 hirdVF">
+        <div className={`sc-1dv6j2d-2 hirdVF ${isActiveHeader ? "sticky" : ""}`}>
             <header id="header" className="header">
                 <nav className="nav ">
                     {/* left________Nav */}
@@ -126,8 +144,9 @@ const Navbar = () => {
                     {/*center________Nav */}
                     <div className="center-nav">
                         <div className="custom-search-dropdown">
-                            <div className='custom-search-inside'>
-                                <img className='search-icon' style={{ width: "20px" }} src='assets/images/search.svg' />
+                            <div className='custom-search-inside inside-search'>
+                                {/* <img className='search-icon' style={{ width: "20px" }} src='assets/images/search.svg' /> */}
+                                <i className="search-icon ri-search-line"></i>
                                 <input
                                     className=''
                                     type='search'
