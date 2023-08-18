@@ -2,12 +2,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import './Navbar.css';
 import Modal from '../Modal/Modal';
 
-const Navbar = ({ switchTheme, currentTheme }) => {
+const Navbar = ({ switchTheme, currentTheme, isModalOpen, setIsModalOpen }) => {
     const logoImage = currentTheme === 'dark' ? 'assets/images/logo/logo-two.png' : 'assets/images/logo/logo-two-black.png';
 
     const [isActiveHeader, setIsActiveHeader] = useState(false);
 
-    const [isNavOpen, setIsNavOpen] = useState(false);
+    // const [isNavOpen, setIsNavOpen] = useState(false);
 
     const [searchTerm, setSearchTerm] = useState('');
     const [isSearchOpen, setSearchOpen] = useState(false);
@@ -15,7 +15,7 @@ const Navbar = ({ switchTheme, currentTheme }) => {
     const ref = useRef(null);
 
     const connectHandler = () => {
-        setIsNavOpen(true)
+        setIsModalOpen(true)
     }
 
     const [isOpen, setIsOpen] = useState(false);
@@ -188,8 +188,10 @@ const Navbar = ({ switchTheme, currentTheme }) => {
                         <div className="custom-dropdown">
                             <div className="selected-option" onClick={toggleDropdown}>
                                 <img src={selectedOption.imgSrc} alt={selectedOption.value} />
-                                <span className='dropdown'> <i className="ri-arrow-drop-down-line"></i></span>
+                                <span className='dropdown'>
+                                    <i class="nav-dropdown ri-arrow-down-s-line"></i>
 
+                                </span>
                             </div>
                             {isOpen && (
                                 <ul className="options">
@@ -214,8 +216,8 @@ const Navbar = ({ switchTheme, currentTheme }) => {
                 </nav>
             </header>
             <Modal
-                isNavOpen={isNavOpen}
-                setIsNavOpen={setIsNavOpen}
+                isModalOpen={isModalOpen}
+                setIsModalOpen={setIsModalOpen}
                 switchTheme={switchTheme} />
         </div>
 

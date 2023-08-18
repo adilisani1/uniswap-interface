@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Swap.css';
 
-const Swap = () => {
+const Swap = ({ setIsModalOpen }) => {
     const [inputValues, setInputValues] = useState({
         "you-pay": "",
         "you-receive": ""
@@ -162,7 +162,7 @@ const Swap = () => {
 
                             </div>
                             <div>
-                                <button font-weight="600" id="connectId" class="connect-wallet">
+                                <button font-weight="600" id="connectId" class="connect-wallet" onClick={() => setIsModalOpen(true)}>
                                     <div class=""></div>
                                     Connect Wallet
                                 </button>

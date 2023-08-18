@@ -3,15 +3,19 @@ import './Nfts.css';
 
 const Nfts = () => {
 
-    const [currentSlide, setCurrentSlide] = useState(0);
+    const tabs = ['1D', '1W', '1M', "All"];
 
-    const prevSlide = () => {
-        setCurrentSlide(currentSlide === 0 ? 2 : (prev) => prev - 1);
-    };
+    const [selectedTab, setSelectedTab] = useState(tabs[0])
 
-    const nextSlide = () => {
-        setCurrentSlide(currentSlide === 2 ? 0 : (prev) => prev + 1);
-    };
+    // const [currentSlide, setCurrentSlide] = useState(0);
+
+    // const prevSlide = () => {
+    //     setCurrentSlide(currentSlide === 0 ? 2 : (prev) => prev - 1);
+    // };
+
+    // const nextSlide = () => {
+    //     setCurrentSlide(currentSlide === 2 ? 0 : (prev) => prev + 1);
+    // };
 
     const data = [
         "https://i.seadn.io/gcs/files/0f98e562496514deec72096435a77eef.jpg",
@@ -19,6 +23,9 @@ const Nfts = () => {
 
     ]
 
+    const handleTableClick = (tab) => {
+        setSelectedTab(tab)
+    }
     return (
         <div className="bCNYil">
             <div className="btxSrH">
@@ -689,11 +696,14 @@ const Nfts = () => {
 
                     </div>
                 </div>
+
+                {/* Trending Nfts Tabs */}
                 <div className="sc-1dnk851-0 yIDuG">
                     <div className="sc-1dnk851-1 ebZEvI">Trending NFT collections</div>
                     <div className="sc-1dnk851-2 dBfFrV">
                         <div className="sc-1dnk851-3 eqMbma">
-                            <div className="sc-1dnk851-4 fQHuEX">
+                            {/* <div className="sc-1dnk851-4 fQHuEX"> */}
+                            <div className="sc-1dnk851-4 bIvKIx">
                                 <div className="sc-sx9n2y-0 kivXvb sc-1dnk851-5 jURivN css-1w21yux">
                                     1D
                                 </div>

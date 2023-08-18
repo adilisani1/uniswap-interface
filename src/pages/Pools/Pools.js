@@ -1,7 +1,7 @@
 import React from 'react';
 import './Pools.css';
 
-const Pools = () => {
+const Pools = ({ setIsModalOpen }) => {
     return (
         <div className='container-pool'>
             <div id='poolsContainer' className='pools-container'>
@@ -37,7 +37,10 @@ const Pools = () => {
                                 style={{ marginTop: "2em" }} /> */}
                             <i className="inbox ri-inbox-2-line"></i>
                             <div>Your active V3 liquidity positions will appear here.</div>
-                            <button id='poolsConnectBtn' className="pools-connect-wallet-btn pool-btn">
+                            <button
+                                id='poolsConnectBtn'
+                                className="pools-connect-wallet-btn pool-btn"
+                                onClick={() => setIsModalOpen(true)}>
                                 Connect a wallet
                             </button>
                         </div>

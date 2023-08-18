@@ -1,22 +1,20 @@
 import React, { useState } from 'react';
 import './Modal.css';
 
-const Modal = ({ isNavOpen, setIsNavOpen, switchTheme }) => {
+const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
     const [isSecondModalOpen, setSecondModalOpen] = useState(false);
 
     const handleButtonClick = () => {
         setSecondModalOpen(true);
     };
 
-    console.log(switchTheme)
-
     return (
         <>
-            <div className={`sc-3dvm1v-2 dLsVJq ${isNavOpen ? 'open' : ''}`}>
+            <div className={`sc-3dvm1v-2 dLsVJq ${isModalOpen ? 'open' : ''}`}>
                 <div
                     data-testid="close-account-drawer"
                     className={`sc-3dvm1v-5 hVzdzS`}
-                    onClick={() => setIsNavOpen(false)} >
+                    onClick={() => setIsModalOpen(false)} >
 
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +39,7 @@ const Modal = ({ isNavOpen, setIsNavOpen, switchTheme }) => {
                     <div id="wallet-dropdown-scroll-wrapper" className="sc-3dvm1v-1 fijsNj">
 
                         <div className="sc-1kykgp9-0 sc-11yue4p-0 iCxowP kfarYJ">
-                            {isNavOpen && (
+                            {isModalOpen && (
                                 <div data-testid="wallet-modal" className="sc-1hmbv05-0 jcIclM">
                                     <div
                                         width="100%"
@@ -173,7 +171,7 @@ const Modal = ({ isNavOpen, setIsNavOpen, switchTheme }) => {
                                 <div className={`sc-3dvm1v-2 dLsVJq ${isSecondModalOpen ? "open" : ""}`}>
                                     <div data-testid="close-account-drawer" className="sc-3dvm1v-5 hVzdzS"
                                         onClick={() => {
-                                            setIsNavOpen(false);
+                                            setIsModalOpen(false);
                                             setSecondModalOpen(false)
                                         }}>
                                         <svg

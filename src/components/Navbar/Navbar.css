@@ -68,17 +68,12 @@
     align-items: center;
 }
 
-.nav-list .nav-item {}
-
-
 .nav-item .nav-link {
-    /* color: #98a1c0; */
     color: var(--text-color);
 
 }
 
 .dropdown .nav-link {
-    /* color: #98a1c0; */
     color: var(--text-color);
 }
 
@@ -140,7 +135,7 @@
 
 /* Center Nav Section */
 .center-nav {
-    display: flex;
+
     flex: 1 1;
     height: 48px;
     align-self: center;
@@ -148,7 +143,7 @@
     box-sizing: border-box;
     vertical-align: baseline;
     -webkit-tap-highlight-color: transparent;
-    /* display: none; */
+    display: none;
 }
 
 /* Custom Search Dropdown */
@@ -279,24 +274,22 @@
     cursor: pointer;
 }
 
-/* Option Image */
 .custom-search-dropdown .search-options li .options-name img {
     width: 24px;
     height: 24px;
     margin-right: 10px;
 }
 
-/* Option Text */
 .custom-search-dropdown .search-options li .options-name span {
     font-size: 16px;
 }
 
-/* Hover Effect for Option */
 .custom-search-dropdown .search-options li:hover {
     background-color: #f0f0f0;
 }
 
-/* Right Nav Section */
+
+/* Right Nav */
 .right-nav {
     display: flex;
     align-items: center;
@@ -315,6 +308,15 @@
 .selected-option {
     padding: 10px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.selected-option .dropdown .nav-dropdown {
+    font-size: 25px;
+    color: #98a1c0;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .selected-option img {
@@ -449,8 +451,6 @@
         display: flex;
     }
 
-
-
     .center-nav {
         justify-content: flex-end;
 
@@ -467,6 +467,7 @@
 
     .center-nav {
         justify-content: center;
+        display: flex;
     }
 
     .custom-search-dropdown {
