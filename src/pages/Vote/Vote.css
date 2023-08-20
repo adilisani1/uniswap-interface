@@ -226,9 +226,9 @@ button {
     text-align: left;
     outline: none;
     cursor: pointer;
-    color: rgb(255, 255, 255);
+    color: var(--color-white);
     text-decoration: none;
-    background-color: rgb(19, 26, 42);
+    background-color: var(--vote-card-bgcolor);
 }
 
 .gyFpxT {
@@ -237,6 +237,7 @@ button {
 }
 
 .Dzbgo {
+    color: var(--color-white);
     font-weight: 600;
     flex: 1 1 0%;
     max-width: 420px;

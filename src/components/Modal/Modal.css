@@ -13,7 +13,19 @@
 .dLsVJq.open {
     right: 8px;
 }
-
+.cnmVKz::-webkit-scrollbar {
+    background: transparent;
+    width: 4px;
+    overflow-y: scroll;
+}
+.cnmVKz::-webkit-scrollbar-thumb {
+    background: rgb(210, 217, 238);
+    border-radius: 8px;
+}
+.cnmVKz::-webkit-scrollbar-track {
+    margin-top: 40px;
+    right: 0;
+}
 .hVzdzS {
     text-decoration: none;
     cursor: pointer;
@@ -48,7 +60,7 @@
     border-radius: 12px;
     width: 320px;
     font-size: 16px;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--model-bg);
     border: 1px solid rgb(210, 217, 238);
     box-shadow: rgba(51, 53, 72, 0.04) 8px 12px 20px, rgba(51, 53, 72, 0.02) 4px 6px 12px, rgba(51, 53, 72, 0.04) 4px 4px 8px;
     transition: margin-right 250ms ease 0s;
@@ -70,7 +82,7 @@
 .jcIclM {
     display: flex;
     flex-flow: column;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--model-bg);
     width: 100%;
     padding: 14px 16px 16px;
     flex: 1 1 0%;
@@ -112,7 +124,7 @@
 }
 
 .kivXvb {
-    color: rgb(13, 17, 28);
+    color: var(--color-white);
 }
 
 .NRTGQ>* {}
@@ -166,7 +178,7 @@ button {
     justify-content: space-between;
     position: relative;
     width: 100%;
-    background-color: rgb(245, 246, 252);
+    background-color: var(--model-cards);
 }
 
 .fRrCJL {
@@ -219,7 +231,7 @@ button {
     align-items: center;
     -webkit-box-pack: center;
     justify-content: center;
-    color: rgb(13, 17, 28);
+    color: var(--model-bg-text);
     font-size: 16px;
     font-weight: 600;
     padding: 0px 8px;
@@ -246,12 +258,12 @@ button {
     color: rgb(119, 128, 160);
 }
 
-.jnMVFj {
+.jnMVFjj {
     text-decoration: none;
     cursor: pointer;
     transition-duration: 125ms;
-    color: rgb(251, 17, 142);
-    stroke: rgb(251, 17, 142);
+    color: var(--model-text);
+    stroke: var(--model-text);
     font-weight: 500;
 }
 
@@ -272,7 +284,7 @@ a {
 }
 
 .fjOrSN {
-    color: rgb(13, 17, 28);
+    color:var(--model-bg-text);
     display: flex;
     -webkit-box-pack: justify;
     justify-content: space-between;
@@ -301,7 +313,7 @@ a {
 }
 
 .bepFek {
-    color: rgb(119, 128, 160);
+    color:rgb(119, 128, 160);
     padding-bottom: 24px;
 }
 
@@ -338,6 +350,7 @@ a {
 }
 
 .css-1aekuku {
+    color:var(--model-bg-text);
     box-sizing: border-box;
     margin: 0px;
     min-width: 0px;
@@ -400,8 +413,8 @@ a {
     border-radius: 12px;
     padding: 6px;
     gap: 4px;
-    background-color: rgba(251, 17, 142, 0.12);
-    color: rgb(251, 17, 142);
+    background-color: var(--model-btn-color);
+    color: var(--model-btn-hover);
     transition: all 250ms ease 0s;
 }
 
@@ -416,7 +429,7 @@ a {
 .jANAGB {
     -webkit-box-align: center;
     align-items: center;
-    background: rgba(251, 17, 142, 0.12);
+    background: var(--model-btn-color);
     border: 1px solid transparent;
     border-radius: 20px;
     cursor: pointer;
@@ -432,7 +445,7 @@ button {
 
 .jsjUXs {
     animation: 0.1s ease-in 0s 1 normal none running none;
-    background: rgb(251, 17, 142);
+    background: var(--model-btn-hover);
     border-radius: 50%;
     height: 24px;
     margin-left: 2.2em;
@@ -468,14 +481,6 @@ button {
     color: rgb(119, 128, 160);
 }
 
-.jsjUXs {
-    animation: 0.1s ease-in 0s 1 normal none running none;
-    background: rgb(251, 17, 142);
-    border-radius: 50%;
-    height: 24px;
-    margin-left: 2.2em;
-    width: 24px;
-}
 
 .ffxhvk {
     -webkit-box-align: center;
@@ -545,7 +550,7 @@ button {
 }
 
 
-.xyz1{
+.xyz1 {
     width: 100%;
     display: flex;
     padding: 4px;

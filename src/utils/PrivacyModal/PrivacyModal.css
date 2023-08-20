@@ -33,7 +33,7 @@
 
 .dwnvhz[data-reach-dialog-content] {
     margin: auto;
-    background-color: rgb(13, 17, 28);
+    background-color: var(--model-bg);
     border: 1px solid rgba(152, 161, 192, 0.24);
     box-shadow: rgba(0, 0, 0, 0.24) 12px 16px 24px, rgba(0, 0, 0, 0.24) 12px 8px 12px, rgba(0, 0, 0, 0.32) 4px 4px 8px;
     padding: 0px;
@@ -132,30 +132,21 @@
     color: rgb(152, 161, 192);
 }
 
-.cywtsm {
-    background-color: rgba(21, 61, 111, 0.44);
-    padding: 0.5rem;
-    width: 100%;
-}
-
 .hqshMl {
     width: 100%;
     padding: 1rem;
     border-radius: 16px;
 }
 
-.koQguv {
+.koQguvv {
     text-decoration: none;
     cursor: pointer;
     transition-duration: 125ms;
-    color: rgb(76, 130, 251);
-    stroke: rgb(76, 130, 251);
+    color: var(--privacy-cards-clr);
+    stroke: var(--privacy-cards-clr);
     font-weight: 500;
 }
 
-a {
-    color: rgb(76, 130, 251);
-}
 
 .fhPvJh {
     width: 100%;
@@ -183,18 +174,13 @@ a {
     gap: 4px;
 }
 
-.hJYFVB {
-    box-sizing: border-box;
-    margin: 0px;
-    min-width: 0px;
-}
 
 .bORAza>* {
     margin: 4px !important;
 }
 
 .kcDJjM {
-    color: rgb(76, 130, 251);
+    color: var(--privacy-cards-clr);
 }
 
 .hsknPm {
@@ -202,7 +188,19 @@ a {
 }
 
 .eftBvH {
-    background-color: rgb(41, 50, 73);
+    background-color: var(--privacy-cc);
+}
+
+.cywtsm:hover,
+.cywtsm:focus,
+.cywtsm:active {
+    background-color: var(--privacy-cards-bg-hover)
+}
+
+.cywtsm {
+    background-color: var(--privacy-cards-bg);
+    padding: 0.5rem;
+    width: 100%;
 }
 
 .hqshMl {
@@ -218,16 +216,13 @@ a {
 }
 
 .EngNh {
-    color: rgb(255, 255, 255);
+    color: var(--color-white);
 }
 
 .bqwbXT {
     color: rgb(152, 161, 192);
 }
 
-.eftBvH {
-    background-color: rgb(41, 50, 73);
-}
 
 .hqshMl {
     width: 100%;
@@ -235,22 +230,7 @@ a {
     border-radius: 16px;
 }
 
-.hJYFVB {
-    box-sizing: border-box;
-    margin: 0px;
-    min-width: 0px;
-}
 
-.hinRyL {
-    display: grid;
-    grid-auto-rows: auto;
-    row-gap: 8px;
-}
-
-.bORAza {
-    flex-wrap: wrap;
-    margin: -4px;
-}
 
 .cTSGxd {
     width: 100%;
@@ -261,12 +241,6 @@ a {
     -webkit-box-pack: start;
     justify-content: flex-start;
     gap: 4px;
-}
-
-.hJYFVB {
-    box-sizing: border-box;
-    margin: 0px;
-    min-width: 0px;
 }
 
 .css-4u0e4f {
@@ -297,9 +271,15 @@ a {
     text-decoration: none;
     cursor: pointer;
     transition-duration: 125ms;
-    color: rgb(76, 130, 251);
-    stroke: rgb(76, 130, 251);
+    color: var(--privacy-cards-clr);
+    stroke: var(--privacy-cards-clr);
     font-weight: 500;
+}
+
+.koQguvhover,
+.koQguv:focus,
+.koQguv:active {
+    background-color: var(--privacy-cards-bg-hover)
 }
 
 element.style {
@@ -310,7 +290,8 @@ element.style {
     position: fixed;
     top: 1px;
     left: 1px;
-}   
+}
+
 .bCNYil {
     display: flex;
     flex-direction: column;

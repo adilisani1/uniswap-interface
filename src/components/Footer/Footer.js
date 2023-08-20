@@ -69,16 +69,16 @@ const Footer = () => {
         <div className="sc-161z70s-7 kzmIWZ">
           <div className="sc-161z70s-8 dbjOeL">
             <span className="sc-161z70s-9 kseCsL">App</span>
-            <a className="sc-7yzmni-10 sc-161z70s-11 dzwlnP eiTsFc" href="#/swap">
+            <a className="sc-7yzmni-10 sc-161z70s-11 dzwlnP eiTsFc koQguvx" href="#/swap">
               Swap
             </a>
-            <a className="sc-7yzmni-10 sc-161z70s-11 dzwlnP eiTsFc" href="#/tokens">
+            <a className="sc-7yzmni-10 sc-161z70s-11 dzwlnP eiTsFc koQguvx" href="#/tokens">
               Tokens
             </a>
-            <a className="sc-7yzmni-10 sc-161z70s-11 dzwlnP eiTsFc" href="#/nfts">
+            <a className="sc-7yzmni-10 sc-161z70s-11 dzwlnP eiTsFc koQguvx" href="#/nfts">
               NFTs
             </a>
-            <a className="sc-7yzmni-10 sc-161z70s-11 dzwlnP eiTsFc" href="#/pools">
+            <a className="sc-7yzmni-10 sc-161z70s-11 dzwlnP eiTsFc koQguvx" href="#/pools">
               Pools
             </a>
           </div>
@@ -88,7 +88,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               href="https://uniswap.org/community"
-              className="sc-7yzmni-9 koQguv sc-161z70s-10 ibYTMN"
+              className="sc-7yzmni-9 koQguvx sc-161z70s-10 ibYTMN"
             >
               Community
             </a>
@@ -96,7 +96,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               href="https://uniswap.org/governance"
-              className="sc-7yzmni-9 koQguv sc-161z70s-10 ibYTMN"
+              className="sc-7yzmni-9 koQguvx sc-161z70s-10 ibYTMN"
             >
               Governance
             </a>
@@ -104,7 +104,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               href="https://uniswap.org/developers"
-              className="sc-7yzmni-9 koQguv sc-161z70s-10 ibYTMN"
+              className="sc-7yzmni-9 koQguvx sc-161z70s-10 ibYTMN"
             >
               Developers
             </a>
@@ -115,7 +115,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               href="https://boards.greenhouse.io/uniswaplabs"
-              className="sc-7yzmni-9 koQguv sc-161z70s-10 ibYTMN"
+              className="sc-7yzmni-9 koQguvx sc-161z70s-10 ibYTMN"
             >
               Careers
             </a>
@@ -123,7 +123,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               href="https://uniswap.org/blog"
-              className="sc-7yzmni-9 koQguv sc-161z70s-10 ibYTMN"
+              className="sc-7yzmni-9 koQguvx sc-161z70s-10 ibYTMN"
             >
               Blog
             </a>
@@ -134,7 +134,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               href="https://support.uniswap.org/hc/en-us/requests/new"
-              className="sc-7yzmni-9 koQguv sc-161z70s-10 ibYTMN"
+              className="sc-7yzmni-9 koQguvx sc-161z70s-10 ibYTMN"
             >
               Contact Us
             </a>
@@ -142,18 +142,14 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               href="https://support.uniswap.org/hc/en-us"
-              className="sc-7yzmni-9 koQguv sc-161z70s-10 ibYTMN"
+              className="sc-7yzmni-9 koQguvx sc-161z70s-10 ibYTMN"
             >
               Help Center
             </a>
           </div>
         </div>
         <div className="sc-161z70s-1 sc-161z70s-3 jdWlrh iGtTgy">
-          <img
-            src="./static/media/unicornEmbossDark.76cdd4c5ce5fec4c8edb.png"
-            alt="Uniswap Logo"
-            className="sc-161z70s-4 dIIePS"
-          />
+        
           <div className="sc-161z70s-5 eVPHHV">
             <a
               href="https://discord.gg/FCfyBSbCU5"

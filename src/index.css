@@ -29,10 +29,29 @@
   --protocol-card: radial-gradient(101.8% 4091.31% at 0% 0%, rgb(70, 115, 250) 0%, rgb(150, 70, 250) 100%);
   /* Sticky-Nav */
   --sticky-nav: #000;
+  --nav-drop: #0d111c;
   /* Tokens page */
   --eth-dropdown: rgb(232, 236, 251);
   --token-border-color: 1px solid rgba(152, 161, 192, 0.24);
+  /* Model page*/
+  --model-bg: rgb(13, 17, 28);
+  --model-btn-hover: rgb(51, 113, 250);
+  --model-btn-color: rgb(76, 130, 251);
+  --model-cards: rgb(19, 26, 42);
+  --model-text: rgb(152, 161, 192);
+  --model-bg-text: rgb(255, 255, 255);
+  /*Vote page*/
+  --vote-card-color: rgb(13, 17, 28);
+  --vote-card-bgcolor: rgb(19, 26, 42);
+  /* Privacy Modal */
+  --privacy-cards-clr: rgb(76, 130, 251);
+  --privacy-cards-bg: rgba(21, 61, 111, 0.44);
+  --privacy-cards-bg-hover: rgba(55, 107, 173, 0.44);
+  --privacy-cc: rgb(41, 50, 73);
+  /* Footer  */
+  --text-clr: rgb(152, 161, 192);
 }
+
 
 
 /* ------------------------------------------------------------
@@ -61,10 +80,30 @@
   --protocol-card: linear-gradient(93.06deg, rgb(255, 0, 199) 2.66%, rgb(255, 159, 251) 98.99%);
   /* Sticky-Nav */
   --sticky-nav: #fff;
+  --nav-drop: #fff;
   /* Tokens page */
   --eth-dropdown: rgb(232, 236, 251);
   --token-border-color: 1px solid rgb(210, 217, 238);
+  /* Model  */
+  --model-bg: #fff;
+  --model-btn-hover: rgb(251, 17, 142);
+  --model-btn-color: rgba(251, 17, 142, 0.12);
+  --model-cards: rgb(245, 246, 252);
+  --model-text: rgb(251, 17, 142);
+  --model-bg-text: rgb(13, 17, 28);
+  /* Vote page */
+  --vote-card-color: rgb(255, 255, 255);
+  --vote-card-bgcolor: rgb(245, 246, 252);
+  /* Privacy Modal*/
+  --privacy-cards-clr: rgb(251, 17, 142);
+  --privacy-cards-bg: rgb(253, 234, 241);
+  --privacy-cards-bg-hover: rgb(246, 221, 232);
+  --privacy-cc: rgb(232, 236, 251);
+  /* Footer  */
+  --text-clr: rgb(119, 128, 160);
 }
+
+
 
 
 

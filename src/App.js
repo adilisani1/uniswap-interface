@@ -18,6 +18,8 @@ import PrivacyModal from './utils/PrivacyModal/PrivacyModal';
 import "./app.css";
 import Vote from "./pages/Vote/Vote";
 import useLocalStorage from "use-local-storage";
+import LiquidityModal from "./utils/LiquidityModal/LiquidityModal";
+import SwapModal from "./utils/SwapModal/SwapModal";
 
 
 
@@ -58,7 +60,16 @@ function App() {
         {
           path: "/privacy",
           element: <PrivacyModal />
-        }
+        },
+        {
+          path: "/liquidity",
+          element: <LiquidityModal />
+        },
+
+        {
+          path: "/swap-modal",
+          element: <SwapModal />
+        },
       ]
     },
 

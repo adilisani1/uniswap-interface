@@ -21,12 +21,6 @@ const Token = () => {
         { value: "1y", label: '1Y' },
     ]
 
-    // const allTableData = [
-    //     { id: 1, name: 'Token 1', price: '$100', label: 'Ethereum' },
-    //     { id: 2, name: 'Token 2', price: '$200', label: 'Polygon' },
-    //     { id: 3, name: 'Token 3', price: '$150', label: 'Arbitrum' },
-    // ];
-
     const allTableData = [
         {
             id: 1,

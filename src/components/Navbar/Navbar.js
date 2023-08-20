@@ -100,13 +100,13 @@ const Navbar = ({ switchTheme, currentTheme, isModalOpen, setIsModalOpen }) => {
                                     </a>
                                     <ul className="dropdown-menu">
                                         <li><a className="dropdown-item" href="#"><i className="me-1 icons ri-apple-fill"></i>Download Uniswap Wallet</a></li>
-                                        <li><a className="dropdown-item" href="#">Vote in governance</a></li>
+                                        <li><a className="dropdown-item" href="/vote">Vote in governance</a></li>
                                         <li><a className="dropdown-item" href="#">View more analytics</a></li>
                                         <div className='borderr'></div>
                                         <li><a className="dropdown-item" href="#">Help center</a></li>
                                         <li><a className="dropdown-item" href="#">Documentation</a></li>
                                         <li><a className="dropdown-item" href="#">Feedback</a></li>
-                                        <li><a className="dropdown-item" href="#">Legal & Privacy</a></li>
+                                        <li><a className="dropdown-item" href="/privacy">Legal & Privacy</a></li>
 
                                         <div className="icons-wrapper">
                                             <a

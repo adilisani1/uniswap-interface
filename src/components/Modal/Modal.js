@@ -144,7 +144,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                     target="_blank"
                                                     rel="noopener noreferrer"
                                                     href="https://uniswap.org/terms-of-service/"
-                                                    className="sc-7yzmni-9 jnMVFj sc-m8pibl-0 eBkKRJ"
+                                                    className="sc-7yzmni-9 jnMVFjj sc-m8pibl-0 eBkKRJ"
                                                 >
                                                     Terms of Service{" "}
                                                 </a>
@@ -153,7 +153,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                     target="_blank"
                                                     rel="noopener noreferrer"
                                                     href="https://uniswap.org/privacy-policy"
-                                                    className="sc-7yzmni-9 jnMVFj sc-m8pibl-0 eBkKRJ"
+                                                    className="sc-7yzmni-9 jnMVFjj sc-m8pibl-0 eBkKRJ"
                                                 >
                                                     Privacy Policy.
                                                 </a>

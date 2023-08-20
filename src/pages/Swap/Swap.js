@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import './Swap.css';
+import SwapModal from '../../utils/SwapModal/SwapModal';
 
 const Swap = ({ setIsModalOpen }) => {
+
+    //SwapModal
+    const [swapModal, setSwapModal] = useState(false);
+
     const [inputValues, setInputValues] = useState({
         "you-pay": "",
         "you-receive": ""
@@ -26,12 +31,14 @@ const Swap = ({ setIsModalOpen }) => {
         const temp = etheriumId;
         setEtheriumId(tokenId);
         setTokenId(temp);
-
     };
     const renderButtonContent = (currencyId) => {
         if (currencyId === "ethId") {
             return (
-                <button id={`open-currency-select`} className='open-currency-btn-top'>
+                <button
+                    id={`open-currency-select`}
+                    className='open-currency-btn-top'
+                    onClick={() => setIsModalOpen(true)}>
                     <span className='span-one'>
                         <div className='cryptocurrency-wrapper'>
                             <div class="image-wrapper " >
@@ -71,87 +78,49 @@ const Swap = ({ setIsModalOpen }) => {
 
     return (
 
-        <div className='swap-wrapper'>
-
-
-            <div className='card-section'>
-                <main className='card-bg'>
-                    <div id="card-top" className='card-top-parent'>
-                        <div id="btns-top" className='top-btns'>
-                            <span className='swap-btn'>Swap</span>
-                            <div className='buy'>
-                                <button id='btn-id' className='buy-btn'>Buy</button>
-                            </div>
-                        </div>
-
-                        <div className='gear'>
-                            <button className='gear-btn'>
-                                <div>
-                                    <i class="ri-settings-3-fill gear-icon"></i>
+        <React.Fragment>
+            <div className='swap-wrapper'>
+                <div className='card-section'>
+                    <main className='card-bg'>
+                        <div id="card-top" className='card-top-parent'>
+                            <div id="btns-top" className='top-btns'>
+                                <span className='swap-btn'>Swap</span>
+                                <div className='buy'>
+                                    <button id='btn-id' className='buy-btn'>Buy</button>
                                 </div>
-                            </button>
-                        </div>
-                    </div>
+                            </div>
 
-                    {/* You Pay Tab */}
-                    <div>
-                        <div className='you-pay'>
-                            <div id='swap-currency-input' className='swap-currency'>
-                                <div className='input-wrapper'>
-                                    <label className='youPay-label'>You pay</label>
-                                    <div className='paying-wrapper'>
-                                        <input id="token-amount" class="token-amount-input"
-                                            inputMode="numeric"
-                                            autocomplete="off"
-                                            autocorrect="off"
-                                            type="text"
-                                            name="you-pay"
-                                            placeholder="0"
-                                            minlength="1"
-                                            maxlength="79"
-                                            spellcheck="false"
-                                            value={inputValues["you-pay"]}
-                                            onChange={handleInputChange} />
-
-                                        <div id={etheriumId}>
-                                            {renderButtonContent(etheriumId)}
-                                        </div>
-
+                            <div className='gear'>
+                                <button className='gear-btn'>
+                                    <div>
+                                        <i class="ri-settings-3-fill gear-icon"></i>
                                     </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div className='switch-button' onClick={switchHandler}>
-                            <div className='switch-bg'>
-                                <i className="arrow-down ri-arrow-down-line" ></i>
+                                </button>
                             </div>
                         </div>
 
-                        <div className='grid'>
-                            <div className='you-receive'>
+                        {/* You Pay Tab */}
+                        <div>
+                            <div className='you-pay'>
                                 <div id='swap-currency-input' className='swap-currency'>
                                     <div className='input-wrapper'>
-                                        <label className='youPay-label'>You receive</label>
+                                        <label className='youPay-label'>You pay</label>
                                         <div className='paying-wrapper'>
                                             <input id="token-amount" class="token-amount-input"
                                                 inputMode="numeric"
                                                 autocomplete="off"
                                                 autocorrect="off"
-                                                name="you-receive"
                                                 type="text"
+                                                name="you-pay"
                                                 placeholder="0"
                                                 minlength="1"
                                                 maxlength="79"
                                                 spellcheck="false"
-                                                value={inputValues["you-receive"]}
+                                                value={inputValues["you-pay"]}
                                                 onChange={handleInputChange} />
 
-                                            <div id={tokenId}>
-                                                {renderButtonContent(tokenId)}
+                                            <div id={etheriumId}>
+                                                {renderButtonContent(etheriumId)}
                                             </div>
 
                                         </div>
@@ -161,21 +130,62 @@ const Swap = ({ setIsModalOpen }) => {
                                 </div>
 
                             </div>
-                            <div>
-                                <button font-weight="600" id="connectId" class="connect-wallet" onClick={() => setIsModalOpen(true)}>
-                                    <div class=""></div>
-                                    Connect Wallet
-                                </button>
+
+                            <div className='switch-button' onClick={switchHandler}>
+                                <div className='switch-bg'>
+                                    <i className="arrow-down ri-arrow-down-line" ></i>
+                                </div>
                             </div>
+
+                            <div className='grid'>
+                                <div className='you-receive'>
+                                    <div id='swap-currency-input' className='swap-currency'>
+                                        <div className='input-wrapper'>
+                                            <label className='youPay-label'>You receive</label>
+                                            <div className='paying-wrapper'>
+                                                <input id="token-amount" class="token-amount-input"
+                                                    inputMode="numeric"
+                                                    autocomplete="off"
+                                                    autocorrect="off"
+                                                    name="you-receive"
+                                                    type="text"
+                                                    placeholder="0"
+                                                    minlength="1"
+                                                    maxlength="79"
+                                                    spellcheck="false"
+                                                    value={inputValues["you-receive"]}
+                                                    onChange={handleInputChange} />
+
+                                                <div id={tokenId}>
+                                                    {renderButtonContent(tokenId)}
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div>
+                                    <button font-weight="600" id="connectId" class="connect-wallet" onClick={() => setIsModalOpen(true)}>
+                                        <div class=""></div>
+                                        Connect Wallet
+                                    </button>
+                                </div>
+                            </div>
+
                         </div>
 
-                    </div>
 
-
-                </main>
+                    </main>
+                </div>
             </div>
-        </div>
 
+
+            {/* <SwapModal /> */}
+
+        </React.Fragment>
     );
 }
 

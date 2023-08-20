@@ -44,7 +44,7 @@ const Vote = () => {
                     <div className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-1 sc-uxt6ak-6 hJYFVB fhPvJh frnZMK bqNfQS">
                         <div
                             className="sc-sx9n2y-0 kandXm css-68pfx3"
-                            style={{ margin: "0.5rem 0.5rem 0.5rem 0px", flexShrink: 0 }}
+                            style={{ margin: "0.5rem 0.5rem 0.5rem 0px", flexShrink: 0 ,color:"var(--color-white)"}}
                         >
                             Proposals
                         </div>
@@ -258,7 +258,8 @@ const Vote = () => {
                         <span className="sc-1z0b5a1-0 cYSgdm">Defeated</span>
                     </a>
                 </div>
-                <div className="sc-sx9n2y-0 kandXm css-zhpkf8">
+                <div className="sc-sx9n2y-0 kandXm css-zhpkf8" style={{ color: "var(--color-white)" }}
+                  >
                     A minimum threshold of 0.25% of the total UNI supply is required to submit
                     proposals
                 </div>

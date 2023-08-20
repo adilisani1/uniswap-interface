@@ -314,6 +314,12 @@
     color: rgb(13, 17, 28);
 }
 
+.eqMbma {
+    display: flex;
+    border: 1px solid rgb(210, 217, 238);
+    border-radius: 16px;
+    padding: 4px;
+}
 
 .bIvKIx {
     padding: 8px 12px;
@@ -327,12 +333,7 @@
     color: rgb(119, 128, 160);
 }
 
-.eqMbma {
-    display: flex;
-    border: 1px solid rgb(210, 217, 238);
-    border-radius: 16px;
-    padding: 4px;
-}
+
 
 .fQHuEX {
     padding: 8px 12px;
@@ -342,12 +343,40 @@
     transition: opacity 250ms ease 0s;
 }
 
+.currencyTabs {
+    padding: 8px 12px;
+    border-radius: 12px;
+    background: none;
+    cursor: pointer;
+    transition: opacity 250ms ease 0s;
+}
+
+.currencyTabs.active {
+
+    padding: 8px 12px;
+    border-radius: 12px;
+    background: var(--open-currency-btn-bg);
+    cursor: pointer;
+    transition: opacity 250ms ease 0s;
+
+}
+
+.bIvKIx.active {
+    padding: 8px 12px;
+    border-radius: 12px;
+    background: var(--open-currency-btn-bg);
+    cursor: pointer;
+    transition: opacity 250ms ease 0s;
+}
+
+/* .fQHuEX {} */
+
 .jURivN {
     color: rgb(13, 17, 28);
 }
 
 .kivXvb {
-    color: var(13, 17, 28);
+    color: var(--color-white);
 }
 
 .btxSrH {
@@ -471,11 +500,6 @@ element.style {
     font-weight: var(--rgw6ez33);
 }
 
-.rgw6ezav {
-    font-size: 14px;
-    font-size: var(--rgw6ez2i);
-}
-
 style attribute {
     text-align: left;
     padding-left: 52px;
@@ -495,10 +519,6 @@ style attribute {
     line-height: var(--rgw6ez2x);
 }
 
-.rgw6ezcp {
-    font-weight: 400;
-    font-weight: var(--rgw6ez33);
-}
 
 .rgw6ezav {
     font-size: 14px;
@@ -562,10 +582,6 @@ element.style {
     position: relative;
 }
 
-.rgw6ez2cp {
-    padding-left: 0;
-}
-
 /* thead {
     display: table-header-group;
     vertical-align: middle;
@@ -614,9 +630,10 @@ tr {
 .fPJsfG {
     height: 36px;
     width: 36px;
+    object-fit: cover;
     border-radius: 36px;
-    background: url(/public/assets/images/degodsicon.png) center center / cover;
-    flex-shrink: 0;
+    /* background: url(/public/assets/images/degodsicon.png) center center / cover; */
+    /* flex-shrink: 0; */
 }
 
 .dOdauD {
@@ -708,10 +725,6 @@ tr {
     line-height: var(--rgw6ez2y);
 }
 
-.rgw6ezcp {
-    font-weight: 400;
-    font-weight: var(--rgw6ez33);
-}
 
 .rgw6ezb1 {
     font-size: 16px;
@@ -854,16 +867,22 @@ td {
     .jXnpsx {
         max-width: 600px;
     }
-}
 
-@media screen and (min-width: 768px) {
-
-    /*Slider Part*/
     .fNoRxi {
         padding: 4px 32px 32px;
     }
 
-    .fNoRxi {
-        padding: 4px 32px 32px;
+}
+
+/* MAx width */
+@media screen and (max-width: 640px) {
+    .ebZEvI {
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    .dBfFrV {
+        margin-bottom: 16px;
+        margin-top: 16px;
     }
 }
