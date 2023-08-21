@@ -1,13 +1,15 @@
 import React from 'react';
 import './SwapModal.css';
 
-const SwapModal = () => {
+const SwapModal = ({ swapModal, setSwapModal }) => {
+
+
     return (
         <div>
             <div
-                className="sc-jajvtp-0 bmYGet"
+                className={`sc-jajvtp-0 bmYGet`}
                 data-reach-dialog-overlay=""
-                style={{ opacity: 1 }}
+                style={{ display: swapModal ? 'flex' : 'none' }}
             >
                 <div
                     aria-modal="true"
@@ -19,25 +21,12 @@ const SwapModal = () => {
                 >
                     <div className="sc-1kykgp9-0 sc-1it7zu4-0 iCxowP fUHrnW">
                         <div className="sc-1kykgp9-2 sc-1xp9ndq-0 kqzAOQ eOCLUf">
-                            <div id="cross-title" className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-1 hJYFVB fhPvJh frnZMKK">
+                            <div id="cross-title" className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-1 hJYFVB fhPvJeh frnZMKK" >
                                 <div className="css-xy7yfl">Select a token</div>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width={24}
-                                    height={24}
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    strokeWidth={2}
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    className="sc-7yzmni-0 fqkEGC"
-                                >
-                                    <line x1={18} y1={6} x2={6} y2={18} />
-                                    <line x1={6} y1={6} x2={18} y2={18} />
-                                </svg>
+                                <span onClick={() => setSwapModal(false)}><i className="ri-close-line"></i></span>
+
                             </div>
-                            <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB fhPvJh">
+                            <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB fhPvJeh">
                                 <input
                                     type="text"
                                     id="token-search-input"
@@ -170,7 +159,7 @@ const SwapModal = () => {
                                         <div style={{ height: 13552, width: "100%" }}>
                                             <div
                                                 tabIndex={0}
-                                                className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-1 sc-1xp9ndq-1 hJYFVB fhPvJh frnZMKK edPdre token-item-ETHER"
+                                                className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-1 sc-1xp9ndq-1 hJYFVB fhPvJeh frnZMKK edPdrxe token-item-ETHER"
                                                 disabled=""
                                                 style={{
                                                     position: "absolute",
@@ -192,7 +181,7 @@ const SwapModal = () => {
                                                     </div>
                                                 </div>
                                                 <div className="sc-1kykgp9-2 jdTKGL" style={{ opacity: 1 }}>
-                                                    <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB fhPvJh">
+                                                    <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB fhPvJeh">
                                                         <div
                                                             title="Ether"
                                                             className="sc-1e2o00j-2 dmGdpm css-vurnku"
@@ -205,12 +194,12 @@ const SwapModal = () => {
                                                 </div>
                                                 <div className="sc-1kykgp9-0 iCxowP">
                                                     <div
-                                                        className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJh leSroW"
+                                                        className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJeh leSroW"
                                                         style={{ justifySelf: "flex-end" }}
                                                     />
                                                 </div>
                                                 <div
-                                                    className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJh leSroW"
+                                                    className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJeh leSroW"
                                                     style={{ justifySelf: "flex-end" }}
                                                 >
                                                     <svg
@@ -231,7 +220,7 @@ const SwapModal = () => {
                                             </div>
                                             <div
                                                 tabIndex={0}
-                                                className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-1 sc-1xp9ndq-1 hJYFVB fhPvJh frnZMKK bPeMEk token-item-0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+                                                className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-1 sc-1xp9ndq-1 hJYFVB fhPvJeh frnZMKK bPeMEk token-item-0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
                                                 style={{
                                                     position: "absolute",
                                                     left: 0,
@@ -252,7 +241,7 @@ const SwapModal = () => {
                                                     </div>
                                                 </div>
                                                 <div className="sc-1kykgp9-2 jdTKGL" style={{ opacity: 1 }}>
-                                                    <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB fhPvJh">
+                                                    <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB fhPvJeh">
                                                         <div
                                                             title="Wrapped Ether"
                                                             className="sc-1e2o00j-2 dmGdpm css-vurnku"
@@ -265,18 +254,18 @@ const SwapModal = () => {
                                                 </div>
                                                 <div className="sc-1kykgp9-0 iCxowP">
                                                     <div
-                                                        className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJh leSroW"
+                                                        className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJeh leSroW"
                                                         style={{ justifySelf: "flex-end" }}
                                                     />
                                                 </div>
                                                 <div
-                                                    className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJh leSroW"
+                                                    className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJeh leSroW"
                                                     style={{ justifySelf: "flex-end" }}
                                                 />
                                             </div>
                                             <div
                                                 tabIndex={0}
-                                                className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-1 sc-1xp9ndq-1 hJYFVB fhPvJh frnZMKK bPeMEk token-item-0x111111111117dC0aa78b770fA6A738034120C302"
+                                                className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-1 sc-1xp9ndq-1 hJYFVB fhPvJeh frnZMKK bPeMEk token-item-0x111111111117dC0aa78b770fA6A738034120C302"
                                                 style={{
                                                     position: "absolute",
                                                     left: 0,
@@ -297,7 +286,7 @@ const SwapModal = () => {
                                                     </div>
                                                 </div>
                                                 <div className="sc-1kykgp9-2 jdTKGL" style={{ opacity: 1 }}>
-                                                    <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB fhPvJh">
+                                                    <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB fhPvJeh">
                                                         <div
                                                             title="1inch"
                                                             className="sc-1e2o00j-2 dmGdpm css-vurnku"
@@ -310,20 +299,20 @@ const SwapModal = () => {
                                                 </div>
                                                 <div className="sc-1kykgp9-0 iCxowP">
                                                     <div
-                                                        className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJh leSroW"
+                                                        className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJeh leSroW"
                                                         style={{ justifySelf: "flex-end" }}
                                                     >
                                                         <span />
                                                     </div>
                                                 </div>
                                                 <div
-                                                    className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJh leSroW"
+                                                    className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJeh leSroW"
                                                     style={{ justifySelf: "flex-end" }}
                                                 />
                                             </div>
                                             <div
                                                 tabIndex={0}
-                                                className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-1 sc-1xp9ndq-1 hJYFVB fhPvJh frnZMKK bPeMEk token-item-0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9"
+                                                className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-1 sc-1xp9ndq-1 hJYFVB fhPvJeh frnZMKK bPeMEk token-item-0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9"
                                                 style={{
                                                     position: "absolute",
                                                     left: 0,
@@ -344,7 +333,7 @@ const SwapModal = () => {
                                                     </div>
                                                 </div>
                                                 <div className="sc-1kykgp9-2 jdTKGL" style={{ opacity: 1 }}>
-                                                    <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB fhPvJh">
+                                                    <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB fhPvJeh">
                                                         <div
                                                             title="Aave"
                                                             className="sc-1e2o00j-2 dmGdpm css-vurnku"
@@ -357,20 +346,20 @@ const SwapModal = () => {
                                                 </div>
                                                 <div className="sc-1kykgp9-0 iCxowP">
                                                     <div
-                                                        className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJh leSroW"
+                                                        className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJeh leSroW"
                                                         style={{ justifySelf: "flex-end" }}
                                                     >
                                                         <span />
                                                     </div>
                                                 </div>
                                                 <div
-                                                    className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJh leSroW"
+                                                    className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJeh leSroW"
                                                     style={{ justifySelf: "flex-end" }}
                                                 />
                                             </div>
                                             <div
                                                 tabIndex={0}
-                                                className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-1 sc-1xp9ndq-1 hJYFVB fhPvJh frnZMKK bPeMEk token-item-0xB98d4C97425d9908E66E53A6fDf673ACcA0BE986"
+                                                className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-1 sc-1xp9ndq-1 hJYFVB fhPvJeh frnZMKK bPeMEk token-item-0xB98d4C97425d9908E66E53A6fDf673ACcA0BE986"
                                                 style={{
                                                     position: "absolute",
                                                     left: 0,
@@ -391,7 +380,7 @@ const SwapModal = () => {
                                                     </div>
                                                 </div>
                                                 <div className="sc-1kykgp9-2 jdTKGL" style={{ opacity: 1 }}>
-                                                    <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB fhPvJh">
+                                                    <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB fhPvJeh">
                                                         <div
                                                             title="Arcblock"
                                                             className="sc-1e2o00j-2 dmGdpm css-vurnku"
@@ -404,20 +393,20 @@ const SwapModal = () => {
                                                 </div>
                                                 <div className="sc-1kykgp9-0 iCxowP">
                                                     <div
-                                                        className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJh leSroW"
+                                                        className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJeh leSroW"
                                                         style={{ justifySelf: "flex-end" }}
                                                     >
                                                         <span />
                                                     </div>
                                                 </div>
                                                 <div
-                                                    className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJh leSroW"
+                                                    className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJeh leSroW"
                                                     style={{ justifySelf: "flex-end" }}
                                                 />
                                             </div>
                                             <div
                                                 tabIndex={0}
-                                                className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-1 sc-1xp9ndq-1 hJYFVB fhPvJh frnZMKK bPeMEk token-item-0xEd04915c23f00A313a544955524EB7DBD823143d"
+                                                className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-1 sc-1xp9ndq-1 hJYFVB fhPvJeh frnZMKK bPeMEk token-item-0xEd04915c23f00A313a544955524EB7DBD823143d"
                                                 style={{
                                                     position: "absolute",
                                                     left: 0,
@@ -438,7 +427,7 @@ const SwapModal = () => {
                                                     </div>
                                                 </div>
                                                 <div className="sc-1kykgp9-2 jdTKGL" style={{ opacity: 1 }}>
-                                                    <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB fhPvJh">
+                                                    <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB fhPvJeh">
                                                         <div
                                                             title="Alchemy Pay"
                                                             className="sc-1e2o00j-2 dmGdpm css-vurnku"
@@ -451,20 +440,20 @@ const SwapModal = () => {
                                                 </div>
                                                 <div className="sc-1kykgp9-0 iCxowP">
                                                     <div
-                                                        className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJh leSroW"
+                                                        className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJeh leSroW"
                                                         style={{ justifySelf: "flex-end" }}
                                                     >
                                                         <span />
                                                     </div>
                                                 </div>
                                                 <div
-                                                    className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJh leSroW"
+                                                    className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJeh leSroW"
                                                     style={{ justifySelf: "flex-end" }}
                                                 />
                                             </div>
                                             <div
                                                 tabIndex={0}
-                                                className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-1 sc-1xp9ndq-1 hJYFVB fhPvJh frnZMKK bPeMEk token-item-0xADE00C28244d5CE17D72E40330B1c318cD12B7c3"
+                                                className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-1 sc-1xp9ndq-1 hJYFVB fhPvJeh frnZMKK bPeMEk token-item-0xADE00C28244d5CE17D72E40330B1c318cD12B7c3"
                                                 style={{
                                                     position: "absolute",
                                                     left: 0,
@@ -485,7 +474,7 @@ const SwapModal = () => {
                                                     </div>
                                                 </div>
                                                 <div className="sc-1kykgp9-2 jdTKGL" style={{ opacity: 1 }}>
-                                                    <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB fhPvJh">
+                                                    <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB fhPvJeh">
                                                         <div
                                                             title="Ambire AdEx"
                                                             className="sc-1e2o00j-2 dmGdpm css-vurnku"
@@ -498,20 +487,20 @@ const SwapModal = () => {
                                                 </div>
                                                 <div className="sc-1kykgp9-0 iCxowP">
                                                     <div
-                                                        className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJh leSroW"
+                                                        className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJeh leSroW"
                                                         style={{ justifySelf: "flex-end" }}
                                                     >
                                                         <span />
                                                     </div>
                                                 </div>
                                                 <div
-                                                    className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJh leSroW"
+                                                    className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJeh leSroW"
                                                     style={{ justifySelf: "flex-end" }}
                                                 />
                                             </div>
                                             <div
                                                 tabIndex={0}
-                                                className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-1 sc-1xp9ndq-1 hJYFVB fhPvJh frnZMKK bPeMEk token-item-0x91Af0fBB28ABA7E31403Cb457106Ce79397FD4E6"
+                                                className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-1 sc-1xp9ndq-1 hJYFVB fhPvJeh frnZMKK bPeMEk token-item-0x91Af0fBB28ABA7E31403Cb457106Ce79397FD4E6"
                                                 style={{
                                                     position: "absolute",
                                                     left: 0,
@@ -532,7 +521,7 @@ const SwapModal = () => {
                                                     </div>
                                                 </div>
                                                 <div className="sc-1kykgp9-2 jdTKGL" style={{ opacity: 1 }}>
-                                                    <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB fhPvJh">
+                                                    <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB fhPvJeh">
                                                         <div
                                                             title="Aergo"
                                                             className="sc-1e2o00j-2 dmGdpm css-vurnku"
@@ -545,20 +534,20 @@ const SwapModal = () => {
                                                 </div>
                                                 <div className="sc-1kykgp9-0 iCxowP">
                                                     <div
-                                                        className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJh leSroW"
+                                                        className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJeh leSroW"
                                                         style={{ justifySelf: "flex-end" }}
                                                     >
                                                         <span />
                                                     </div>
                                                 </div>
                                                 <div
-                                                    className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJh leSroW"
+                                                    className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJeh leSroW"
                                                     style={{ justifySelf: "flex-end" }}
                                                 />
                                             </div>
                                             <div
                                                 tabIndex={0}
-                                                className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-1 sc-1xp9ndq-1 hJYFVB fhPvJh frnZMK bPeMEk token-item-0x626E8036dEB333b408Be468F951bdB42433cBF18"
+                                                className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-1 sc-1xp9ndq-1 hJYFVB fhPvJeh frnZMK bPeMEk token-item-0x626E8036dEB333b408Be468F951bdB42433cBF18"
                                                 style={{ position: "absolute", left: 0, top: 504, height: 56, width: "100%" }}
                                             >
                                                 <div className="sc-1kykgp9-0 iCxowP">
@@ -573,7 +562,7 @@ const SwapModal = () => {
                                                     </div>
                                                 </div>
                                                 <div className="sc-1kykgp9-2 jdTKGL" style={{ opacity: 1 }}>
-                                                    <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB fhPvJh">
+                                                    <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB fhPvJeh">
                                                         <div title="AIOZ Network" className="sc-1e2o00j-2 dmGdpm css-vurnku">
                                                             AIOZ Network
                                                         </div>
@@ -583,21 +572,21 @@ const SwapModal = () => {
                                                 </div>
                                                 <div className="sc-1kykgp9-0 iCxowP">
                                                     <div
-                                                        className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJh leSroW"
+                                                        className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJeh leSroW"
                                                         style={{ justifySelf: "flex-end" }}
                                                     >
                                                         <span />
                                                     </div>
                                                 </div>
                                                 <div
-                                                    className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJh leSroW"
+                                                    className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJeh leSroW"
                                                     style={{ justifySelf: "flex-end" }}
                                                 />
                                             </div>
 
                                             <div
                                                 tabIndex={0}
-                                                className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-1 sc-1xp9ndq-1 hJYFVB fhPvJh frnZMKK bPeMEk token-item-0x32353A6C91143bfd6C7d363B546e62a9A2489A20"
+                                                className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-1 sc-1xp9ndq-1 hJYFVB fhPvJeh frnZMKK bPeMEk token-item-0x32353A6C91143bfd6C7d363B546e62a9A2489A20"
                                                 style={{
                                                     position: "absolute",
                                                     left: 0,
@@ -618,7 +607,7 @@ const SwapModal = () => {
                                                     </div>
                                                 </div>
                                                 <div className="sc-1kykgp9-2 jdTKGL" style={{ opacity: 1 }}>
-                                                    <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB fhPvJh">
+                                                    <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB fhPvJeh">
                                                         <div
                                                             title="Adventure Gold"
                                                             className="sc-1e2o00j-2 dmGdpm css-vurnku"
@@ -631,14 +620,14 @@ const SwapModal = () => {
                                                 </div>
                                                 <div className="sc-1kykgp9-0 iCxowP">
                                                     <div
-                                                        className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJh leSroW"
+                                                        className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJeh leSroW"
                                                         style={{ justifySelf: "flex-end" }}
                                                     >
                                                         <span />
                                                     </div>
                                                 </div>
                                                 <div
-                                                    className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJh leSroW"
+                                                    className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-4 hJYFVB fhPvJeh leSroW"
                                                     style={{ justifySelf: "flex-end" }}
                                                 />
                                             </div>

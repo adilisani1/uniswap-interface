@@ -87,25 +87,19 @@
 .jXnpsx {
     position: relative;
     width: 100%;
-    overflow-x: hidden;
+    overflow: hidden;
     max-width: 100%;
     height: 390px;
 }
 
-.jXnpsx {
-    position: relative;
-    width: 100%;
-    overflow-x: hidden;
-    max-width: 100%;
-    height: 390px;
-}
+
 
 .fNoRxi {
     display: flex;
     -webkit-box-pack: center;
     justify-content: center;
     padding: 4px 12px 32px;
-    position: absolute;
+    /* position: absolute; */
     will-change: transform;
     width: calc(100%);
     height: calc(100%);

@@ -247,6 +247,7 @@
     justify-content: space-between;
     margin-left: 12px;
     visibility: visible;
+    pointer-events: auto;
 }
 
 .open-currency-btn-top::before {
@@ -308,9 +309,6 @@
     font-size: 20px;
     font-weight: 600;
 }
-
-
-.open-currency-btn span .dropdown-icon {}
 
 .dropdown-icon .fa-drop {
     border: none;

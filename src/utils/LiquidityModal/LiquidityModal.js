@@ -141,8 +141,7 @@ const LiquidityModal = () => {
                                         <div className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-1 hJYFVB add-liquidity-head-content select-pair-title">
                                             <div
                                                 id="add-liquidity-input-tokena LfrBf "
-                                                className="sc-33m4yg-0 bwZKda sc-dphd4z-4 "
-                                            >
+                                                className="sc-33m4yg-0 bwZKda sc-dphd4z-4 " >
                                                 <div className="sc-33m4yg-2 fLWrtM">
                                                     <div
                                                         className="sc-33m4yg-4 ixomhB"
@@ -346,7 +345,7 @@ const LiquidityModal = () => {
                                                                     >
                                                                         <div className="sc-12k1pn4-2 ckpBIe">
                                                                             <img
-                                                                                src="./assets/images/eth-logo.png"
+                                                                                src="/assets/images/tokens/eth-icon.png"
                                                                                 alt="ETH logo"
                                                                                 className="sc-12k1pn4-1 bwVixy"
                                                                             />

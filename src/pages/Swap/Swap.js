@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import './Swap.css';
 import SwapModal from '../../utils/SwapModal/SwapModal';
 
-const Swap = ({ setIsModalOpen }) => {
+const Swap = ({ setIsModalOpen, swapModal, setSwapModal }) => {
 
-    //SwapModal
-    const [swapModal, setSwapModal] = useState(false);
+    const handleSwapModal = () => {
+        setSwapModal(true)
+    }
 
     const [inputValues, setInputValues] = useState({
         "you-pay": "",
@@ -38,7 +39,8 @@ const Swap = ({ setIsModalOpen }) => {
                 <button
                     id={`open-currency-select`}
                     className='open-currency-btn-top'
-                    onClick={() => setIsModalOpen(true)}>
+                    onClick={handleSwapModal}
+                >
                     <span className='span-one'>
                         <div className='cryptocurrency-wrapper'>
                             <div class="image-wrapper " >
@@ -56,7 +58,7 @@ const Swap = ({ setIsModalOpen }) => {
             );
         } else {
             return (
-                <button id={`open-currency-select`} className='open-currency-btn-bottom'>
+                <button id={`open-currency-select`} className='open-currency-btn-bottom' onClick={handleSwapModal} >
                     <span className='span-two'>
                         <div className='cryptocurrency-wrapper'>
                             <div class="text-wrapper" >
@@ -182,8 +184,7 @@ const Swap = ({ setIsModalOpen }) => {
                 </div>
             </div>
 
-
-            {/* <SwapModal /> */}
+            <SwapModal swapModal={swapModal} setSwapModal={setSwapModal} />
 
         </React.Fragment>
     );

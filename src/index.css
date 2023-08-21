@@ -50,6 +50,10 @@
   --privacy-cc: rgb(41, 50, 73);
   /* Footer  */
   --text-clr: rgb(152, 161, 192);
+  /* Liquidity page */
+    --dropdown-bg: rgb(19, 26, 42);
+    --dropdown-border:rgb(13, 17, 28);
+      --model-btn-color: rgb(76, 130, 251);
 }
 
 
@@ -101,6 +105,9 @@
   --privacy-cc: rgb(232, 236, 251);
   /* Footer  */
   --text-clr: rgb(119, 128, 160);
+  /* Liquidity page */
+  --dropdown-bg:rgb(245, 246, 252);
+  --dropdown-border:#fff;
 }
 
 
