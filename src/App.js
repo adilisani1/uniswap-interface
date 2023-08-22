@@ -23,6 +23,7 @@ import Wallet from "./components/Wallet/Wallet";
 
 import "./app.css";
 import useLocalStorage from "use-local-storage";
+import TokenDetails from "./components/TokenDetails/TokenDetails";
 
 
 function App() {
@@ -56,6 +57,10 @@ function App() {
         {
           path: "/nfts",
           element: <Nfts />
+        },
+        {
+          path: "/tokenss",
+          element: <TokenDetails />
         },
 
         {

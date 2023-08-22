@@ -7,22 +7,77 @@ const Navbar = ({ switchTheme, currentTheme, isModalOpen, setIsModalOpen }) => {
 
     const [isActiveHeader, setIsActiveHeader] = useState(false);
 
-    // const [isNavOpen, setIsNavOpen] = useState(false);
 
     const [searchTerm, setSearchTerm] = useState('');
     const [isSearchOpen, setSearchOpen] = useState(false);
 
     const ref = useRef(null);
 
+
     const connectHandler = () => {
         setIsModalOpen(true)
     }
+
+    //For header
+    useEffect(() => {
+        function handleScroll() {
+            if (window.pageYOffset > 50) {
+                setIsActiveHeader(true);
+            } else {
+                setIsActiveHeader(false);
+            }
+        }
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     const [isOpen, setIsOpen] = useState(false);
     const options = [
         { value: 'etheruim', label: "Etheruim", imgSrc: 'assets/images/tokens/eth-icon.png' },
         { value: 'polygon', label: "Polygon", imgSrc: 'assets/images/tokens/polygon.svg' },
         { value: 'optimistic', label: "Optimistic", imgSrc: 'assets/images/tokens/optimistic.svg' },
+    ];
+    //Search Options
+    const searchOptions = [
+        //Popular Tokens
+        {
+            id: 1,
+            value: 'etheruim',
+            label: "Ether",
+            symbol: "ETH",
+            imgSrc: 'assets/images/tokens/eth-icon.png',
+            price: 1676.75,
+            oldPrice: 1576.50,
+        },
+        {
+            id: 2,
+            value: 'usdCoin',
+            label: "USD Coin",
+            symbol: "USDC",
+            imgSrc: 'assets/images/usdt-icon.png',
+            price: 1.00,
+            oldPrice: 1.30
+        },
+
+        //Popular NFTs
+        {
+            id: 1,
+            value: 'degods',
+            label: "DeGods",
+            items: "8999",
+            imgSrc: 'assets/images/degodsicon.png',
+            floor: 24.40,
+            items: 9998
+        },
+        {
+            id: 2,
+            value: 'bored',
+            label: "Bored Ape Yacht Club",
+            items: "9999",
+            imgSrc: 'assets/images/bored.png',
+            floor: 4.55,
+            items: 19480
+        },
     ];
 
     const [selectedOption, setSelectedOption] = useState(options[0]);
@@ -38,36 +93,42 @@ const Navbar = ({ switchTheme, currentTheme, isModalOpen, setIsModalOpen }) => {
         setSearchTerm(e.target.value);
     }
 
-    const filteredOptions = options.filter(option =>
+    const filteredOptions = searchOptions.filter(option =>
         option.label.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
-    // useEffect(() => {
-    //     document.addEventListener('click', handleClickOutside);
-    //     return () => {
-    //         document.removeEventListener('click', handleClickOutside);
-    //     };
-    // }, []);
-
-    // const handleClickOutside = (event) => {
-    //     if (ref.current && !ref.current.contains(event.target)) {
-    //         setSearchOpen(false);
-    //     }
-    // };
-
-
-    //For header
+    //For closing search box
     useEffect(() => {
-        function handleScroll() {
-            if (window.pageYOffset > 50) {
-                setIsActiveHeader(true);
-            } else {
-                setIsActiveHeader(false);
+        const handleClickOutside = (event) => {
+            if (ref.current && !ref.current.contains(event.target)) {
+                setSearchOpen(false);
             }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [ref]);
+
+    function determineTrendIcon(current, old) {
+        if (current > old) {
+            return <i style={{ color: "green" }} className="trends-up-icon ri-arrow-right-up-line"></i>;
+        } else if (current < old) {
+            return <i style={{ color: "red" }} className="trends-down-icon ri-arrow-right-down-line"></i>;
         }
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+        return null;
+    }
+
+    //Calculate Search `dropdown` rates
+    function calculatePercentChange(current, old) {
+        return Math.abs((current - old) / old * 100);
+    }
+
+
+
+
 
     return (
         <div className={`sc-1dv6j2d-2 hirdVF ${isActiveHeader ? "sticky" : ""}`}>
@@ -146,10 +207,11 @@ const Navbar = ({ switchTheme, currentTheme, isModalOpen, setIsModalOpen }) => {
 
                     {/*center________Nav */}
                     <div className="center-nav">
-                        <div className="custom-search-dropdown">
+                        <div className="custom-search-dropdown" ref={ref}>
                             <div className='custom-search-inside inside-search'>
-                                {/* <img className='search-icon' style={{ width: "20px" }} src='assets/images/search.svg' /> */}
+                                {/* <img className='search-icon' style={{ width: "20px" }} src='/images/search.svg' /> */}
                                 <i className="search-icon ri-search-line"></i>
+
                                 <input
                                     className=''
                                     type='search'
@@ -162,22 +224,104 @@ const Navbar = ({ switchTheme, currentTheme, isModalOpen, setIsModalOpen }) => {
                             </div>
 
                             {isSearchOpen && (
-                                <ul className="search-options">
-                                    <div className=''>Popular tokens</div>
 
-                                    {filteredOptions.map((option, index) => (
-                                        <li key={index} onClick={() => {
-                                            handleOptionClick(option);
-                                            setSearchTerm(option.label);
-                                            setSearchOpen(false);
-                                        }}
-                                        >
-                                            <div className='options-name'>
-                                                <img src={option.imgSrc} alt={option.label} />
-                                                <span>{option.label}</span>
+                                <ul className="search-options">
+                                    <div className='options'>
+                                        <div className='so'>
+                                            <div className=''>
+
+                                                {filteredOptions.map((option, index) => (
+                                                    <React.Fragment key={index}>
+                                                        {option.price && !filteredOptions[index - 1]?.price && (
+
+                                                            <div className='popular-tokens'>
+                                                                <div className="popular-title">
+                                                                    <img className='rotate-arrow' src='assets/images/trends-arrow.png' />
+
+                                                                    <div>Popular Tokens</div>
+                                                                </div>
+                                                            </div>
+                                                        )}
+                                                        {/* title for popular NFTs */}
+                                                        {option.floor && !searchOptions[index - 1]?.floor && (
+                                                            <div className='popular-tokens'>
+                                                                <div className="popular-title">
+                                                                    <img className='rotate-arrow' src='assets/images/trends-arrow.png' />
+                                                                    <div>Popular NFTs</div>
+                                                                </div>
+                                                            </div>
+                                                        )}
+                                                        <React.Fragment>
+                                                            <div className='popular-tokens-item'>
+                                                                <a
+                                                                    href='https://app.uniswap.org/#/tokens/ethereum/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'
+                                                                    className='tokens-options' onClick={() => {
+                                                                        handleOptionClick(option);
+                                                                        setSearchTerm(option.label);
+                                                                        setSearchOpen(false);
+                                                                    }}>
+                                                                    <div className='left-item' >
+                                                                        <div>
+                                                                            <div className='img-div'>
+                                                                                <img src={option.imgSrc} alt={option.label} />
+                                                                            </div>
+                                                                            <div className='dCJIvZ'></div>
+                                                                        </div>
+                                                                        <div className='token-name'>
+                                                                            <div className='token-name-value'>
+                                                                                <span>{option.label}</span>
+                                                                            </div>
+                                                                            <div className='symbol'>
+                                                                                {option.symbol && <span>{option.symbol}</span>}
+                                                                                <div className=''>
+                                                                                    {option.items && <span> {option.items.toLocaleString()} items</span>}
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className='right-item'>
+                                                                        {/* data for Tokens */}
+                                                                        {option.price && (
+                                                                            <React.Fragment>
+                                                                                <div>
+                                                                                    <div className='price-item'>
+                                                                                        <span className='price-text'>${option.price.toFixed(2)}</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div className='percentage'>
+
+                                                                                    <span>{determineTrendIcon(option.price, option.oldPrice)}</span>
+                                                                                    <span className='percentage-text' style={{ color: option.price > option.oldPrice ? "green" : "red" }}>
+                                                                                        <span>
+                                                                                            {calculatePercentChange(option.price, option.oldPrice).toFixed(2)}%
+                                                                                        </span>
+                                                                                    </span>
+                                                                                </div>
+
+                                                                            </React.Fragment>
+                                                                        )}
+                                                                        {/* data for Floor */}
+                                                                        {option.floor && (
+                                                                            <React.Fragment>
+                                                                                <div className='floor-rate'>
+                                                                                    <span>{option.floor.toFixed(2)} ETH</span>
+                                                                                </div>
+                                                                                <span className='floor-text'>
+                                                                                    <p>Floor</p>
+                                                                                </span>
+                                                                            </React.Fragment>
+                                                                        )}
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                        </React.Fragment>
+
+                                                    </React.Fragment>
+                                                ))}
                                             </div>
-                                        </li>
-                                    ))}
+                                        </div>
+
+                                    </div>
                                 </ul>
                             )}
                         </div>
@@ -186,18 +330,18 @@ const Navbar = ({ switchTheme, currentTheme, isModalOpen, setIsModalOpen }) => {
                     {/* right________Nav */}
                     <div className="right-nav">
                         <div className="custom-dropdown">
-                            <div className="selected-option" onClick={toggleDropdown}>
+                            <div className="selected-op" onClick={toggleDropdown}>
                                 <img src={selectedOption.imgSrc} alt={selectedOption.value} />
-                                <span className='dropdown'>
+                                <span className='drp'>
                                     <i class="nav-dropdown ri-arrow-down-s-line"></i>
 
                                 </span>
                             </div>
                             {isOpen && (
-                                <ul className="options">
+                                <ul className="op">
                                     {options.map((option, index) => (
                                         <li key={index} onClick={() => handleOptionClick(option)}>
-                                            <div className='options-name'>
+                                            <div className='op-name'>
                                                 <img src={option.imgSrc} alt={option.label} />
                                                 <span>{option.label}</span>
                                             </div>

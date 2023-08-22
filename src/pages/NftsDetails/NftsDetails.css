@@ -337,10 +337,6 @@ a {
     line-height: 24px;
 }
 
-.kivXvb {
-    color: rgb(13, 17, 28);
-}
-
 .hipPoV {
     color: rgb(64, 182, 107);
     display: flex;
@@ -1054,7 +1050,7 @@ a {
 }
 
 .kivXvb {
-    color: rgb(13, 17, 28);
+    color: var(--color-white);
 }
 
 .vdwqu {

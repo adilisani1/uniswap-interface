@@ -287,7 +287,7 @@ button {
 
 
 .gOBtVo {
-    color: rgb(251, 17, 142);
+    color: var(--btn-color);
 }
 
 .geRwLC {
@@ -829,7 +829,7 @@ button {
     flex-flow: column;
     position: relative;
     border-radius: 20px;
-    background-color: rgb(232, 236, 251);
+    background-color: var(--open-currency-btn-bg);
     z-index: 1;
     width: initial;
     transition: height 1s ease 0s;
@@ -839,7 +839,7 @@ button {
 .eixZHY {
     border-radius: 20px;
     border: 1px solid rgb(255, 255, 255);
-    background-color: rgb(245, 246, 252);
+    background-color: var(--open-currency-btn-bg);
     width: initial;
 }
 
@@ -928,7 +928,7 @@ button {
 
 .kDKqNI {
     grid-area: 1 / 2 / 3 / auto;
-    height: fit-content;
+    /* height: fit-content; */
 }
 
 .select-pair {

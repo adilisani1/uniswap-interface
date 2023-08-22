@@ -176,27 +176,6 @@ const Token = () => {
                         </div>
                     </div>
 
-                    {/* Add the table */}
-                    {/* <div className='table-container'>
-                    <table className='token-table'>
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Price</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {filteredTableData.map((row) => (
-                                <tr key={row.id}>
-                                    <td>{row.id}</td>
-                                    <td>{row.name}</td>
-                                    <td>{row.price}</td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div> */}
 
                     {/* Data Head  */}
                     <div className="sc-19z0ycm-0 frDKYg">

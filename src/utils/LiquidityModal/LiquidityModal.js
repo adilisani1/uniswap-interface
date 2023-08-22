@@ -66,7 +66,7 @@ const LiquidityModal = () => {
                                 className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-1 hJYFVB add-liquidity-head-content select-pair-title"
                                 style={{ padding: "1rem 1rem 0px" }}
                             >
-                                <a flex={1} className="sc-iwajx4-1 dskEvD" href="#/pools">
+                                <a flex={1} className="sc-iwajx4-1 dskEvD" href="/pools">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         width={24}

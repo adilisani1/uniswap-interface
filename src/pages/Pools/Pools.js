@@ -18,7 +18,7 @@ const Pools = ({ setIsModalOpen }) => {
                                     </button>
                                 </div>
                                 <a data-cy="join-pool-button" id="join-pool-button"
-                                    className="bYPKDz kEIpOD hPbqJv" href="#/add/ETH">
+                                    className="bYPKDz kEIpOD hPbqJv" href="/liquidity">
                                     + New Position
                                 </a>
                             </div>
