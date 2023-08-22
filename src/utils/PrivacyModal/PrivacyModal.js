@@ -1,12 +1,16 @@
 import React from 'react';
 import './PrivacyModal.css';
 
-const PrivacyModal = () => {
+const PrivacyModal = ({ privacyModal, setPrivacyModal }) => {
+
+
+
     return (
         <div className="bCNYil">
             <div
                 className="sc-jajvtp-0 ehpVfL"
                 data-reach-dialog-overlay=""
+                // style={{ display: privacyModal ? 'flex' : 'none' }}
                 style={{ opacity: 1 }}
             >
                 <div
@@ -20,22 +24,26 @@ const PrivacyModal = () => {
                     <div className="sc-1kykgp9-2 kqyzGE">
                         <div className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-1 gIzieT gqRmqj frnZMK">
                             <div className="sc-sx9n2y-0 kandXm css-68pfx3">Legal &amp; Privacy</div>
-                            <div className="sc-z1xxjf-2 kGICmr">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width={24}
-                                    height={24}
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    strokeWidth={2}
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                >
-                                    <line x1={18} y1={6} x2={6} y2={18} />
-                                    <line x1={6} y1={6} x2={18} y2={18} />
-                                </svg>
-                            </div>
+                            <a href='/'>
+                                <div className="sc-z1xxjf-2 kGICmr" >
+
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width={24}
+                                        height={24}
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth={2}
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    >
+                                        <line x1={18} y1={6} x2={6} y2={18} />
+                                        <line x1={6} y1={6} x2={18} y2={18} />
+                                    </svg>
+
+                                </div>
+                            </a>
                         </div>
                         <div draggable="true" className="sc-z1xxjf-0 jraKIU">
                             <div className="sc-1kykgp9-2 kqzAOQ">
@@ -299,7 +307,7 @@ const PrivacyModal = () => {
             </div>
 
 
-        </div>
+        </div >
     )
 }
 

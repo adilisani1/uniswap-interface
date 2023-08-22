@@ -3,7 +3,6 @@ import './SwapModal.css';
 
 const SwapModal = ({ swapModal, setSwapModal }) => {
 
-
     return (
         <div>
             <div

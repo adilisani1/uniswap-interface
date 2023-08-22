@@ -8,6 +8,32 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
         setSecondModalOpen(true);
     };
 
+    const [sunClicked, setSunClicked] = useState(false);
+
+    const [allowLightTheme, setAllowLightTheme] = useState(true);
+
+
+    const [activeTheme, setActiveTheme] = useState('dark'); // Default to light theme
+
+    const handleSunClick = () => {
+        if (allowLightTheme) {
+            switchTheme('light');
+            setAllowLightTheme(false);
+            setActiveTheme('light');
+        }
+    };
+
+    const handleMoonClick = () => {
+        if (!allowLightTheme) {
+            switchTheme('dark');
+            setAllowLightTheme(true);
+            setActiveTheme('dark');
+        }
+    };
+
+    // Determine the current theme state (you need to have a way to track this)
+
+
     return (
         <>
             <div className={`sc-3dvm1v-2 dLsVJq ${isModalOpen ? 'open' : ''}`}>
@@ -45,7 +71,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                         width="100%"
                                         className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-3 laNPNA fsgYBU NRTGQ"
                                     >
-                                        <div className="sc-sx9n2y-0 kivXvxb css-rjqmed" >
+                                        <div className="sc-sx9n2y-0 kivXvb css-rjqmed" >
                                             Connect a wallet
                                         </div>
                                         <button
@@ -200,10 +226,10 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                             onClick={() => setSecondModalOpen(false)}>
                                                         </i>
                                                         <span className="sc-1xe6nb0-1 UbGpC">
-                                                            <div className="sc-sx9n2y-0 kivXvxb css-rjqmed">Settings</div>
+                                                            <div className="sc-sx9n2y-0 kivXvb css-rjqmed">Settings</div>
                                                         </span>
                                                     </div>
-                                                    <div className="sc-sx9n2y-0 kivXvxb sc-k6pz4u-1 bepFek css-rjqmed">
+                                                    <div className="sc-sx9n2y-0 kivXvb sc-k6pz4u-1 bepFek css-rjqmed">
                                                         Preferences
                                                     </div>
                                                     <div className="sc-k6pz4u-2 bqhmxH">
@@ -214,15 +240,20 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                             <div width="60%" className="sc-bczRLJ sc-nrd8cx-0 foniQS jGtsjx">
                                                                 <div className="sc-bczRLJ sc-nrd8cx-0 sc-1euncec-1 hJYFVB xyz1 etXiLa">
                                                                     <div
-                                                                        data-testid="theme-auto" onClick={() => switchTheme()}
-                                                                        className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-3 sc-1euncec-0 hJYFVB xyz1 kHFzEX gurCES"
+                                                                        data-testid="theme-auto"
+                                                                        onClick={() => {
+                                                                            switchTheme(allowLightTheme ? 'light' : 'dark');
+                                                                            setAllowLightTheme(!allowLightTheme);
+                                                                            setActiveTheme(allowLightTheme ? 'light' : 'dark');
+                                                                        }}
+                                                                        className={`sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-3 sc-1euncec-0 hJYFVB xyz1 kHFzEX`}
                                                                     >
                                                                         <div className="sc-sx9n2y-0 kandXm css-rjqmed">Auto</div>
                                                                     </div>
                                                                     <div
                                                                         data-testid="theme-lightmode"
-                                                                        className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-3 sc-1euncec-0 hJYFVB xyz1 kHFzEX eqaHKd"
-
+                                                                        className={`sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-3 sc-1euncec-0 hJYFVB xyz1 sun-icon kHFzEX ${activeTheme === 'light' ? 'eqaHKd' : ''}`}
+                                                                        onClick={handleSunClick}
                                                                     >
                                                                         <svg
                                                                             xmlns="http://www.w3.org/2000/svg"
@@ -248,20 +279,20 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                                         <div className="sc-sx9n2y-0 kandXm css-rjqmed" />
                                                                     </div>
                                                                     <div
-                                                                        data-testid="theme-darkmode "
-                                                                        className="sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-3 sc-1euncec-0 hJYFVB xyz1 kHFzEX gurCES"
+                                                                        data-testid="theme-darkmode"
+                                                                        className={`sc-bczRLJ sc-nrd8cx-0 sc-nrd8cx-3 sc-1euncec-0 hJYFVB xyz1 kHFzEX moon-icon ${activeTheme === 'dark' ? 'eqaHKd' : ''}`}
+                                                                        onClick={handleMoonClick}
+                                                                    > <svg
+                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                        width={20}
+                                                                        height={20}
+                                                                        viewBox="0 0 24 24"
+                                                                        fill="none"
+                                                                        stroke="currentColor"
+                                                                        strokeWidth={2}
+                                                                        strokeLinecap="round"
+                                                                        strokeLinejoin="round"
                                                                     >
-                                                                        <svg
-                                                                            xmlns="http://www.w3.org/2000/svg"
-                                                                            width={20}
-                                                                            height={20}
-                                                                            viewBox="0 0 24 24"
-                                                                            fill="none"
-                                                                            stroke="currentColor"
-                                                                            strokeWidth={2}
-                                                                            strokeLinecap="round"
-                                                                            strokeLinejoin="round"
-                                                                        >
                                                                             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
                                                                         </svg>
                                                                         <div className="sc-sx9n2y-0 kandXm css-rjqmed" />
@@ -272,7 +303,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                         <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB xyz1">
                                                             <div className="sc-1kykgp9-0 sc-1opkkz6-0 iCxowP kMuqSe">
                                                                 <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB xyz1">
-                                                                    <div className="sc-sx9n2y-0 kivXvxb css-1aekuku">
+                                                                    <div className="sc-sx9n2y-0 kivXvb css-1aekuku">
                                                                         Hide small balances
                                                                     </div>
                                                                 </div>
@@ -288,7 +319,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                         <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB xyz1">
                                                             <div className="sc-1kykgp9-0 sc-1opkkz6-0 iCxowP kMuqSe">
                                                                 <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB xyz1">
-                                                                    <div className="sc-sx9n2y-0 kivXvxb css-1aekuku">
+                                                                    <div className="sc-sx9n2y-0 kivXvb css-1aekuku">
                                                                         Allow analytics
                                                                     </div>
                                                                 </div>
@@ -310,7 +341,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                         <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB xyz1">
                                                             <div className="sc-1kykgp9-0 sc-1opkkz6-0 iCxowP kMuqSe">
                                                                 <div className="sc-bczRLJ sc-nrd8cx-0 hJYFVB xyz1">
-                                                                    <div className="sc-sx9n2y-0 kivXvxb css-1aekuku">
+                                                                    <div className="sc-sx9n2y-0 kivXvb css-1aekuku">
                                                                         Show testnets
                                                                     </div>
                                                                 </div>
@@ -328,14 +359,14 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                     </div>
                                                     <div
                                                         data-testid="wallet-header"
-                                                        className="sc-sx9n2y-0 kivXvxb sc-k6pz4u-1 bepFek css-rjqmed"
+                                                        className="sc-sx9n2y-0 kivXvb sc-k6pz4u-1 bepFek css-rjqmed"
                                                     >
                                                         Language
                                                     </div>
                                                     <a className="sc-k6pz4u-0 iFDhEy" href="#/nfts?lng=en-US">
                                                         <div
                                                             data-testid="wallet-language-item"
-                                                            className="sc-sx9n2y-0 kivXvxb css-zhpkf8"
+                                                            className="sc-sx9n2y-0 kivXvb css-zhpkf8"
                                                         >
                                                             English
                                                         </div>
@@ -357,7 +388,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                     <a className="sc-k6pz4u-0 iFDhEy" href="#/nfts?lng=af-ZA">
                                                         <div
                                                             data-testid="wallet-language-item"
-                                                            className="sc-sx9n2y-0 kivXvxb css-zhpkf8"
+                                                            className="sc-sx9n2y-0 kivXvb css-zhpkf8"
                                                         >
                                                             Afrikaans
                                                         </div>
@@ -365,7 +396,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                     <a className="sc-k6pz4u-0 iFDhEy" href="#/nfts?lng=ar-SA">
                                                         <div
                                                             data-testid="wallet-language-item"
-                                                            className="sc-sx9n2y-0 kivXvxb css-zhpkf8"
+                                                            className="sc-sx9n2y-0 kivXvb css-zhpkf8"
                                                         >
                                                             العربية
                                                         </div>
@@ -373,7 +404,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                     <a className="sc-k6pz4u-0 iFDhEy" href="#/nfts?lng=ca-ES">
                                                         <div
                                                             data-testid="wallet-language-item"
-                                                            className="sc-sx9n2y-0 kivXvxb css-zhpkf8"
+                                                            className="sc-sx9n2y-0 kivXvb css-zhpkf8"
                                                         >
                                                             Català
                                                         </div>
@@ -381,7 +412,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                     <a className="sc-k6pz4u-0 iFDhEy" href="#/nfts?lng=cs-CZ">
                                                         <div
                                                             data-testid="wallet-language-item"
-                                                            className="sc-sx9n2y-0 kivXvxb css-zhpkf8"
+                                                            className="sc-sx9n2y-0 kivXvb css-zhpkf8"
                                                         >
                                                             čeština
                                                         </div>
@@ -389,7 +420,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                     <a className="sc-k6pz4u-0 iFDhEy" href="#/nfts?lng=da-DK">
                                                         <div
                                                             data-testid="wallet-language-item"
-                                                            className="sc-sx9n2y-0 kivXvxb css-zhpkf8"
+                                                            className="sc-sx9n2y-0 kivXvb css-zhpkf8"
                                                         >
                                                             dansk
                                                         </div>
@@ -397,7 +428,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                     <a className="sc-k6pz4u-0 iFDhEy" href="#/nfts?lng=de-DE">
                                                         <div
                                                             data-testid="wallet-language-item"
-                                                            className="sc-sx9n2y-0 kivXvxb css-zhpkf8"
+                                                            className="sc-sx9n2y-0 kivXvb css-zhpkf8"
                                                         >
                                                             Deutsch
                                                         </div>
@@ -405,7 +436,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                     <a className="sc-k6pz4u-0 iFDhEy" href="#/nfts?lng=el-GR">
                                                         <div
                                                             data-testid="wallet-language-item"
-                                                            className="sc-sx9n2y-0 kivXvxb css-zhpkf8"
+                                                            className="sc-sx9n2y-0 kivXvb css-zhpkf8"
                                                         >
                                                             ελληνικά
                                                         </div>
@@ -413,7 +444,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                     <a className="sc-k6pz4u-0 iFDhEy" href="#/nfts?lng=es-ES">
                                                         <div
                                                             data-testid="wallet-language-item"
-                                                            className="sc-sx9n2y-0 kivXvxb css-zhpkf8"
+                                                            className="sc-sx9n2y-0 kivXvb css-zhpkf8"
                                                         >
                                                             Español
                                                         </div>
@@ -421,7 +452,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                     <a className="sc-k6pz4u-0 iFDhEy" href="#/nfts?lng=fi-FI">
                                                         <div
                                                             data-testid="wallet-language-item"
-                                                            className="sc-sx9n2y-0 kivXvxb css-zhpkf8"
+                                                            className="sc-sx9n2y-0 kivXvb css-zhpkf8"
                                                         >
                                                             suomi
                                                         </div>
@@ -429,7 +460,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                     <a className="sc-k6pz4u-0 iFDhEy" href="#/nfts?lng=fr-FR">
                                                         <div
                                                             data-testid="wallet-language-item"
-                                                            className="sc-sx9n2y-0 kivXvxb css-zhpkf8"
+                                                            className="sc-sx9n2y-0 kivXvb css-zhpkf8"
                                                         >
                                                             français
                                                         </div>
@@ -437,7 +468,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                     <a className="sc-k6pz4u-0 iFDhEy" href="#/nfts?lng=he-IL">
                                                         <div
                                                             data-testid="wallet-language-item"
-                                                            className="sc-sx9n2y-0 kivXvxb css-zhpkf8"
+                                                            className="sc-sx9n2y-0 kivXvb css-zhpkf8"
                                                         >
                                                             עִברִית
                                                         </div>
@@ -445,7 +476,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                     <a className="sc-k6pz4u-0 iFDhEy" href="#/nfts?lng=hu-HU">
                                                         <div
                                                             data-testid="wallet-language-item"
-                                                            className="sc-sx9n2y-0 kivXvxb css-zhpkf8"
+                                                            className="sc-sx9n2y-0 kivXvb css-zhpkf8"
                                                         >
                                                             Magyar
                                                         </div>
@@ -453,7 +484,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                     <a className="sc-k6pz4u-0 iFDhEy" href="#/nfts?lng=id-ID">
                                                         <div
                                                             data-testid="wallet-language-item"
-                                                            className="sc-sx9n2y-0 kivXvxb css-zhpkf8"
+                                                            className="sc-sx9n2y-0 kivXvb css-zhpkf8"
                                                         >
                                                             bahasa Indonesia
                                                         </div>
@@ -461,7 +492,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                     <a className="sc-k6pz4u-0 iFDhEy" href="#/nfts?lng=it-IT">
                                                         <div
                                                             data-testid="wallet-language-item"
-                                                            className="sc-sx9n2y-0 kivXvxb css-zhpkf8"
+                                                            className="sc-sx9n2y-0 kivXvb css-zhpkf8"
                                                         >
                                                             Italiano
                                                         </div>
@@ -469,7 +500,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                     <a className="sc-k6pz4u-0 iFDhEy" href="#/nfts?lng=ja-JP">
                                                         <div
                                                             data-testid="wallet-language-item"
-                                                            className="sc-sx9n2y-0 kivXvxb css-zhpkf8"
+                                                            className="sc-sx9n2y-0 kivXvb css-zhpkf8"
                                                         >
                                                             日本語
                                                         </div>
@@ -477,7 +508,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                     <a className="sc-k6pz4u-0 iFDhEy" href="#/nfts?lng=ko-KR">
                                                         <div
                                                             data-testid="wallet-language-item"
-                                                            className="sc-sx9n2y-0 kivXvxb css-zhpkf8"
+                                                            className="sc-sx9n2y-0 kivXvb css-zhpkf8"
                                                         >
                                                             한국어
                                                         </div>
@@ -485,7 +516,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                     <a className="sc-k6pz4u-0 iFDhEy" href="#/nfts?lng=nl-NL">
                                                         <div
                                                             data-testid="wallet-language-item"
-                                                            className="sc-sx9n2y-0 kivXvxb css-zhpkf8"
+                                                            className="sc-sx9n2y-0 kivXvb css-zhpkf8"
                                                         >
                                                             Nederlands
                                                         </div>
@@ -493,7 +524,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                     <a className="sc-k6pz4u-0 iFDhEy" href="#/nfts?lng=no-NO">
                                                         <div
                                                             data-testid="wallet-language-item"
-                                                            className="sc-sx9n2y-0 kivXvxb css-zhpkf8"
+                                                            className="sc-sx9n2y-0 kivXvb css-zhpkf8"
                                                         >
                                                             norsk
                                                         </div>
@@ -501,7 +532,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                     <a className="sc-k6pz4u-0 iFDhEy" href="#/nfts?lng=pl-PL">
                                                         <div
                                                             data-testid="wallet-language-item"
-                                                            className="sc-sx9n2y-0 kivXvxb css-zhpkf8"
+                                                            className="sc-sx9n2y-0 kivXvb css-zhpkf8"
                                                         >
                                                             Polskie
                                                         </div>
@@ -509,7 +540,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                     <a className="sc-k6pz4u-0 iFDhEy" href="#/nfts?lng=pt-BR">
                                                         <div
                                                             data-testid="wallet-language-item"
-                                                            className="sc-sx9n2y-0 kivXvxb css-zhpkf8"
+                                                            className="sc-sx9n2y-0 kivXvb css-zhpkf8"
                                                         >
                                                             português
                                                         </div>
@@ -517,7 +548,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                     <a className="sc-k6pz4u-0 iFDhEy" href="#/nfts?lng=pt-PT">
                                                         <div
                                                             data-testid="wallet-language-item"
-                                                            className="sc-sx9n2y-0 kivXvxb css-zhpkf8"
+                                                            className="sc-sx9n2y-0 kivXvb css-zhpkf8"
                                                         >
                                                             português
                                                         </div>
@@ -525,7 +556,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                     <a className="sc-k6pz4u-0 iFDhEy" href="#/nfts?lng=ro-RO">
                                                         <div
                                                             data-testid="wallet-language-item"
-                                                            className="sc-sx9n2y-0 kivXvxb css-zhpkf8"
+                                                            className="sc-sx9n2y-0 kivXvb css-zhpkf8"
                                                         >
                                                             Română
                                                         </div>
@@ -533,7 +564,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                     <a className="sc-k6pz4u-0 iFDhEy" href="#/nfts?lng=ru-RU">
                                                         <div
                                                             data-testid="wallet-language-item"
-                                                            className="sc-sx9n2y-0 kivXvxb css-zhpkf8"
+                                                            className="sc-sx9n2y-0 kivXvb css-zhpkf8"
                                                         >
                                                             русский
                                                         </div>
@@ -541,7 +572,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                     <a className="sc-k6pz4u-0 iFDhEy" href="#/nfts?lng=sr-SP">
                                                         <div
                                                             data-testid="wallet-language-item"
-                                                            className="sc-sx9n2y-0 kivXvxb css-zhpkf8"
+                                                            className="sc-sx9n2y-0 kivXvb css-zhpkf8"
                                                         >
                                                             Српски
                                                         </div>
@@ -549,7 +580,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                     <a className="sc-k6pz4u-0 iFDhEy" href="#/nfts?lng=sv-SE">
                                                         <div
                                                             data-testid="wallet-language-item"
-                                                            className="sc-sx9n2y-0 kivXvxb css-zhpkf8"
+                                                            className="sc-sx9n2y-0 kivXvb css-zhpkf8"
                                                         >
                                                             svenska
                                                         </div>
@@ -557,7 +588,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                     <a className="sc-k6pz4u-0 iFDhEy" href="#/nfts?lng=sw-TZ">
                                                         <div
                                                             data-testid="wallet-language-item"
-                                                            className="sc-sx9n2y-0 kivXvxb css-zhpkf8"
+                                                            className="sc-sx9n2y-0 kivXvb css-zhpkf8"
                                                         >
                                                             Kiswahili
                                                         </div>
@@ -565,7 +596,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                     <a className="sc-k6pz4u-0 iFDhEy" href="#/nfts?lng=tr-TR">
                                                         <div
                                                             data-testid="wallet-language-item"
-                                                            className="sc-sx9n2y-0 kivXvxb css-zhpkf8"
+                                                            className="sc-sx9n2y-0 kivXvb css-zhpkf8"
                                                         >
                                                             Türkçe
                                                         </div>
@@ -573,7 +604,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                     <a className="sc-k6pz4u-0 iFDhEy" href="#/nfts?lng=uk-UA">
                                                         <div
                                                             data-testid="wallet-language-item"
-                                                            className="sc-sx9n2y-0 kivXvxb css-zhpkf8"
+                                                            className="sc-sx9n2y-0 kivXvb css-zhpkf8"
                                                         >
                                                             Український
                                                         </div>
@@ -581,7 +612,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                     <a className="sc-k6pz4u-0 iFDhEy" href="#/nfts?lng=vi-VN">
                                                         <div
                                                             data-testid="wallet-language-item"
-                                                            className="sc-sx9n2y-0 kivXvxb css-zhpkf8"
+                                                            className="sc-sx9n2y-0 kivXvb css-zhpkf8"
                                                         >
                                                             Tiếng Việt
                                                         </div>
@@ -589,7 +620,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                     <a className="sc-k6pz4u-0 iFDhEy" href="#/nfts?lng=zh-CN">
                                                         <div
                                                             data-testid="wallet-language-item"
-                                                            className="sc-sx9n2y-0 kivXvxb css-zhpkf8"
+                                                            className="sc-sx9n2y-0 kivXvb css-zhpkf8"
                                                         >
                                                             简体中文
                                                         </div>
@@ -597,7 +628,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, switchTheme }) => {
                                                     <a className="sc-k6pz4u-0 iFDhEy" href="#/nfts?lng=zh-TW">
                                                         <div
                                                             data-testid="wallet-language-item"
-                                                            className="sc-sx9n2y-0 kivXvxb css-zhpkf8"
+                                                            className="sc-sx9n2y-0 kivXvb css-zhpkf8"
                                                         >
                                                             繁体中文
                                                         </div>

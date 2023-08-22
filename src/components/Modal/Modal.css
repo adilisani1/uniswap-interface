@@ -13,19 +13,31 @@
 .dLsVJq.open {
     right: 8px;
 }
+
+.sun-icon {
+    color: var(--color-white);
+}
+
+.moon-icon {
+    color: var(--color-white);
+}
+
 .cnmVKz::-webkit-scrollbar {
     background: transparent;
     width: 4px;
     overflow-y: scroll;
 }
+
 .cnmVKz::-webkit-scrollbar-thumb {
     background: rgb(210, 217, 238);
     border-radius: 8px;
 }
+
 .cnmVKz::-webkit-scrollbar-track {
     margin-top: 40px;
     right: 0;
 }
+
 .hVzdzS {
     text-decoration: none;
     cursor: pointer;
@@ -284,7 +296,7 @@ a {
 }
 
 .fjOrSN {
-    color:var(--model-bg-text);
+    color: var(--model-bg-text);
     display: flex;
     -webkit-box-pack: justify;
     justify-content: space-between;
@@ -313,7 +325,7 @@ a {
 }
 
 .bepFek {
-    color:rgb(119, 128, 160);
+    color: rgb(119, 128, 160);
     padding-bottom: 24px;
 }
 
@@ -350,7 +362,7 @@ a {
 }
 
 .css-1aekuku {
-    color:var(--model-bg-text);
+    color: var(--model-bg-text);
     box-sizing: border-box;
     margin: 0px;
     min-width: 0px;

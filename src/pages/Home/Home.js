@@ -10,7 +10,7 @@ const Home = () => {
             <div className='home-page'>
                 {/* <div className='swap-card'> */}
                 <div className='card-wrapper'>
-                    <a className='card-anchor' href='#/swap'>
+                    <a className='card-anchor' href='/swap'>
                         <div className='card-section'>
                             <main className='card-home-bg'>
                                 <div id="card-home-top" className='card-top-parent'>

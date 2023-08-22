@@ -1,52 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import './Token.css';
+import { allTableData, options, updateTime } from '../../service/tokens';
 
 const Token = () => {
-    const options = [
-        { value: 'etheruim', imgSrc: './assets/images/tokens/eth-icon.png', label: 'Ethereum' },
-        { value: 'polygon', imgSrc: './assets/images/tokens/polygon.svg', label: 'Polygon' },
-        { value: 'arbitrum', imgSrc: './assets/images/tokens/arbitrum.svg', label: 'Arbitrum' },
-        { value: 'optimistic', imgSrc: './assets/images/tokens/optimistic.svg', label: 'Optimistic' },
-        { value: 'celo', imgSrc: './assets/images/tokens/celo.svg', label: 'Celo' },
-        { value: 'bnbchain', imgSrc: './assets/images/tokens/bnb.svg', label: 'BNB Chain' },
-        { value: 'avalanche', imgSrc: './assets/images/tokens/avax.svg', label: 'Avalanche' },
-        { value: 'base', imgSrc: './assets/images/tokens/base.svg', label: 'Base' },
-    ];
 
-    const updateTime = [
-        { value: "1h", label: '1H' },
-        { value: "1d", label: '1D' },
-        { value: "1w", label: '1W' },
-        { value: "1m", label: '1M' },
-        { value: "1y", label: '1Y' },
-    ]
+    const [sortBy, setSortBy] = useState('price');
+    const [sortOrder, setSortOrder] = useState('desc');
 
-    const allTableData = [
-        {
-            id: 1,
-            name: 'Ether',
-            symbol: 'ETH',
-            image: 'assets/images/tokens/eth-icon.png',
-            price: '$1,847.65',
-            change: "0.12%",
-            tvl: "$1.2B",
-            volume: "$257.0M",
-            label: 'Ethereum'
+    const sortData = (criteria) => {
+        const newSortOrder = sortBy === criteria && sortOrder === 'asc' ? 'desc' : 'asc';
+        setSortBy(criteria);
+        setSortOrder(newSortOrder);
 
-        },
+        const sortedData = [...allTableData].sort((a, b) => {
+            const aValue = a[criteria];
+            const bValue = b[criteria];
 
-        {
-            id: 2,
-            name: 'USD Coin',
-            symbol: 'USDC',
-            image: 'assets/images/usdt-polygon-icon.png',
-            price: '$1.00',
-            change: "0.00%",
-            tvl: "617.1M",
-            volume: "$149.4M",
-            label: 'Polygon'
-        },
-    ]
+            if (newSortOrder === 'asc') {
+                return aValue.localeCompare(bValue);
+            } else {
+                return bValue.localeCompare(aValue);
+            }
+        });
+
+        setFilteredTableData(sortedData);
+    };
 
 
     // Filter the table data based on the selected option
@@ -176,6 +154,27 @@ const Token = () => {
                         </div>
                     </div>
 
+                    {/* Add the table */}
+                    {/* <div className='table-container'>
+                    <table className='token-table'>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {filteredTableData.map((row) => (
+                                <tr key={row.id}>
+                                    <td>{row.id}</td>
+                                    <td>{row.name}</td>
+                                    <td>{row.price}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div> */}
 
                     {/* Data Head  */}
                     <div className="sc-19z0ycm-0 frDKYg">
@@ -194,55 +193,63 @@ const Token = () => {
                                 data-testid="price-cell"
                                 className="sc-1bit9h6-0 sc-1bit9h6-6 sc-1bit9h6-9 hJyIyF knzTRi igka-dA"
                             >
-                                <span className="sc-1bit9h6-13 jxjqhR">Price</span>
+                                <span className="sc-1bit9h6-13 jxjqhR">
+                                    <div onClick={() => sortData('price')}>Price</div>
+                                    {sortBy === 'price' && (
+                                        <div className="sc-d5tbhs-1 cSretk">
+                                            <div>
+                                                <div className="sc-1bit9h6-26 bcYQwk">
+                                                    {sortOrder === 'asc' ? (
+                                                        <i className="drop-ico ri-arrow-up-line"></i>
+                                                    ) : (
+                                                        <i className="drop-ico ri-arrow-down-line"></i>
+                                                    )}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}
+                                </span>
                             </div>
                             <div
                                 data-testid="percent-change-cell"
                                 className="sc-1bit9h6-0 sc-1bit9h6-6 sc-1bit9h6-10 hJyIyF knzTRi fLOBMM"
                             >
-                                <span className="sc-1bit9h6-13 jxjqhR">Change</span>
+                                <span className="sc-1bit9h6-13 jxjqhR">
+                                    <div onClick={() => sortData('change')}>Change</div>
+                                    {sortBy === 'change' && (
+                                        <div className="sc-d5tbhs-1 cSretk">
+                                            <div>
+                                                <div className="sc-1bit9h6-26 bcYQwk">
+                                                    {sortOrder === 'asc' ? (
+                                                        <i className="drop-ico ri-arrow-up-line"></i>
+                                                    ) : (
+                                                        <i className="drop-ico ri-arrow-down-line"></i>
+                                                    )}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}
+                                </span>
                             </div>
                             <div
                                 data-testid="tvl-cell"
                                 className="sc-1bit9h6-0 sc-1bit9h6-6 sc-1bit9h6-7 hJyIyF knzTRi fLGPoq"
                             >
                                 <span className="sc-1bit9h6-13 jxjqhR">
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width={20}
-                                        height={20}
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="#4C82FB"
-                                        strokeWidth="1.8"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                    >
-                                        <line x1={12} y1={5} x2={12} y2={19} />
-                                        <polyline points="19 12 12 19 5 12" />
-                                    </svg>
-                                    TVL
-                                    <div className="sc-d5tbhs-1 cSretk">
-                                        <div>
-                                            <div className="sc-1bit9h6-26 bcYQwk">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width={14}
-                                                    height={14}
-                                                    viewBox="0 0 24 24"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    strokeWidth={2}
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                >
-                                                    <circle cx={12} cy={12} r={10} />
-                                                    <line x1={12} y1={16} x2={12} y2={12} />
-                                                    <line x1={12} y1={8} x2="12.01" y2={8} />
-                                                </svg>
+                                    <div onClick={() => sortData('tvl')}>TVL</div>
+                                    {sortBy === 'tvl' && (
+                                        <div className="sc-d5tbhs-1 cSretk">
+                                            <div>
+                                                <div className="sc-1bit9h6-26 bcYQwk">
+                                                    {sortOrder === 'asc' ? (
+                                                        <i className="drop-ico ri-arrow-up-line"></i>
+                                                    ) : (
+                                                        <i className="drop-ico ri-arrow-down-line"></i>
+                                                    )}
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    )}
                                 </span>
                             </div>
                             <div
@@ -250,63 +257,56 @@ const Token = () => {
                                 className="sc-1bit9h6-0 sc-1bit9h6-6 sc-1bit9h6-20 hJyIyF knzTRi gEaRbj"
                             >
                                 <span className="sc-1bit9h6-13 jxjqhR">
-                                    Volume
-                                    <div className="sc-d5tbhs-1 cSretk">
-                                        <div>
-                                            <div className="sc-1bit9h6-26 bcYQwk">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width={14}
-                                                    height={14}
-                                                    viewBox="0 0 24 24"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    strokeWidth={2}
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                >
-                                                    <circle cx={12} cy={12} r={10} />
-                                                    <line x1={12} y1={16} x2={12} y2={12} />
-                                                    <line x1={12} y1={8} x2="12.01" y2={8} />
-                                                </svg>
+                                    <div onClick={() => sortData('volume')}>Volume</div>
+                                    {sortBy === 'volume' && (
+                                        <div className="sc-d5tbhs-1 cSretk">
+                                            <div>
+                                                <div className="sc-1bit9h6-26 bcYQwk">
+                                                    {sortOrder === 'asc' ? (
+                                                        <i className="drop-ico ri-arrow-up-line"></i>
+                                                    ) : (
+                                                        <i className="drop-ico ri-arrow-down-line"></i>
+                                                    )}
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    )}
                                 </span>
                             </div>
-                            <div className="sc-1bit9h6-0 sc-1bit9h6-14 hJyIyF NpKpm" />
                         </div>
+
+
 
 
 
                         {/* Data Body */}
                         <div className="sc-19z0ycm-1 ejgNi">
+                            <div>
+                                {/* Headers for sorting */}
+
+
+
+
+                            </div>
                             {filteredTableData.map((data, index) => (
-                                <div data-testid="token-table-row-NATIVE">
-                                    <a className="sc-1bit9h6-16 kiPA-dv" href="#/tokens/ethereum/NATIVE">
+                                <div key={index} data-testid="token-table-row-NATIVE">
+                                    <a className="sc-1bit9h6-16 kiPA-dv" href={`#/tokens/ethereum/${data.symbol}`}>
                                         <div className="sc-1bit9h6-1 cQmpaP">
                                             <div className="sc-1bit9h6-0 sc-1bit9h6-5 hJyIyF bwVaNf">1</div>
-                                            <div
-                                                data-testid="name-cell"
-                                                className="sc-1bit9h6-0 sc-1bit9h6-8 hJyIyF fLXlBW"
-                                            >
+                                            <div data-testid="name-cell" className="sc-1bit9h6-0 sc-1bit9h6-8 hJyIyF fLXlBW">
                                                 <div className="sc-1bit9h6-2 sc-1bit9h6-3 bvHTKj jqxpYK">
                                                     <div className="sc-12k1pn4-3 eLvYRk">
                                                         <div className="sc-12k1pn4-2 ckpBIe">
-                                                            <img
-                                                                src={data.image}
-                                                                alt="ETH logo"
-                                                                className="sc-12k1pn4-1 bwVixy"
-                                                            />
+                                                            <img src={data.image} alt="Token logo" className="sc-12k1pn4-1 bwVixy" />
                                                         </div>
                                                         <div className="sc-12k1pn4-4 epsCee" />
                                                     </div>
                                                     <div className="sc-1bit9h6-0 sc-1bit9h6-17 hJyIyF gKCxsP">
                                                         <div data-cy="token-name" className="sc-1bit9h6-18 kSNzln">
-                                                            {/* Ether */}{data.name}
+                                                            {data.name}
                                                         </div>
                                                         <div className="sc-1bit9h6-0 sc-1bit9h6-19 hJyIyF jRVRlR">
-                                                            {/* ETH */}{data.symbol}
+                                                            {data.symbol}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -318,11 +318,8 @@ const Token = () => {
                                                 <div className="sc-1bit9h6-2 bvHTKj">
                                                     <div className="sc-1bit9h6-0 sc-1bit9h6-12 hJyIyF eNYLXF">
                                                         {data.price}
-                                                        {/* $1,847.65 */}
                                                         <div className="sc-1bit9h6-0 sc-1bit9h6-11 hJyIyF iQNhmM">
-                                                            <div className="sc-1nu6e54-7 cLYUzV">
-                                                            </div>
-
+                                                            <div className="sc-1nu6e54-7 cLYUzV"></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -332,125 +329,36 @@ const Token = () => {
                                                 className="sc-1bit9h6-0 sc-1bit9h6-6 sc-1bit9h6-10 hJyIyF dQscKx fLOBMM"
                                             >
                                                 <div className="sc-1bit9h6-2 bvHTKj">
-                                                    <div className="sc-1nu6e54-7 cLYUzV">
-
-                                                    </div>
-                                                    <span className="sc-1nu6e54-2 braSjM">
-                                                        {/* 0.05% */}{data.change}
-                                                    </span>
+                                                    <div className="sc-1nu6e54-7 cLYUzV"></div>
+                                                    <span className="sc-1nu6e54-2 braSjM">{data.change}</span>
                                                 </div>
                                             </div>
                                             <div
                                                 data-testid="tvl-cell"
                                                 className="sc-1bit9h6-0 sc-1bit9h6-6 sc-1bit9h6-7 hJyIyF dQscKx fLGPoq"
                                             >
-                                                <div className="sc-1bit9h6-2 bvHTKj">
-                                                    {/* $1.2B */}{data.tvl}
-                                                </div>
+                                                <div className="sc-1bit9h6-2 bvHTKj">{data.tvl}</div>
                                             </div>
                                             <div
                                                 data-testid="volume-cell"
                                                 className="sc-1bit9h6-0 sc-1bit9h6-6 sc-1bit9h6-20 hJyIyF dQscKx gEaRbj"
                                             >
-                                                <div className="sc-1bit9h6-2 bvHTKj">
-                                                    {/* $133.9M */} {data.volume}
-                                                </div>
+                                                <div className="sc-1bit9h6-2 bvHTKj">{data.volume}</div>
                                             </div>
                                             <div className="sc-1bit9h6-0 sc-1bit9h6-14 hJyIyF NpKpm">
                                                 <div className="sc-1bit9h6-0 sc-1bit9h6-15 hJyIyF FLymZ">
-                                                    <div style={{ width: "100%", height: "100%" }}>
-                                                        graph-img
-                                                    </div>
+                                                    <div style={{ width: '100%', height: '100%' }}>graph-img</div>
                                                 </div>
                                             </div>
                                         </div>
                                     </a>
                                 </div>
                             ))}
-
-                            {/* <div className="sc-19z0ycm-1 ejgNi">
-                            <div data-testid="token-table-row-NATIVE">
-                                <a className="sc-1bit9h6-16 kiPA-dv" href="#/tokens/ethereum/NATIVE">
-                                    <div className="sc-1bit9h6-1 cQmpaP">
-                                        <div className="sc-1bit9h6-0 sc-1bit9h6-5 hJyIyF bwVaNf">2</div>
-                                        <div
-                                            data-testid="name-cell"
-                                            className="sc-1bit9h6-0 sc-1bit9h6-8 hJyIyF fLXlBW"
-                                        >
-                                            <div className="sc-1bit9h6-2 sc-1bit9h6-3 bvHTKj jqxpYK">
-                                                <div className="sc-12k1pn4-3 eLvYRk">
-                                                    <div className="sc-12k1pn4-2 ckpBIe">
-                                                        <img
-                                                            src="assets/images/usdt-icon.png"
-                                                            alt="USDT LOGO"
-                                                            className="sc-12k1pn4-1 bwVixy"
-                                                        />
-                                                    </div>
-                                                    <div className="sc-12k1pn4-4 epsCee" />
-                                                </div>
-                                                <div className="sc-1bit9h6-0 sc-1bit9h6-17 hJyIyF gKCxsP">
-                                                    <div data-cy="token-name" className="sc-1bit9h6-18 kSNzln">
-                                                        USD Coin
-                                                    </div>
-                                                    <div className="sc-1bit9h6-0 sc-1bit9h6-19 hJyIyF jRVRlR">
-                                                        USDC
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div
-                                            data-testid="price-cell"
-                                            className="sc-1bit9h6-0 sc-1bit9h6-6 sc-1bit9h6-9 hJyIyF dQscKx igka-dA"
-                                        >
-                                            <div className="sc-1bit9h6-2 bvHTKj">
-                                                <div className="sc-1bit9h6-0 sc-1bit9h6-12 hJyIyF eNYLXF">
-                                                    $1.00
-                                                    <div className="sc-1bit9h6-0 sc-1bit9h6-11 hJyIyF iQNhmM">
-                                                        <div className="sc-1nu6e54-7 cLYUzV">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div
-                                            data-testid="percent-change-cell"
-                                            className="sc-1bit9h6-0 sc-1bit9h6-6 sc-1bit9h6-10 hJyIyF dQscKx fLOBMM"
-                                        >
-                                            <div className="sc-1bit9h6-2 bvHTKj">
-                                                <div className="sc-1nu6e54-7 cLYUzV">
-
-                                                </div>
-                                                <span className="sc-1nu6e54-2 braSjM">0.00%</span>
-                                            </div>
-                                        </div>
-                                        <div
-                                            data-testid="tvl-cell"
-                                            className="sc-1bit9h6-0 sc-1bit9h6-6 sc-1bit9h6-7 hJyIyF dQscKx fLGPoq"
-                                        >
-                                            <div className="sc-1bit9h6-2 bvHTKj">$624.1M</div>
-                                        </div>
-                                        <div
-                                            data-testid="volume-cell"
-                                            className="sc-1bit9h6-0 sc-1bit9h6-6 sc-1bit9h6-20 hJyIyF dQscKx gEaRbj"
-                                        >
-                                            <div className="sc-1bit9h6-2 bvHTKj">$61.8M</div>
-                                        </div>
-                                        <div className="sc-1bit9h6-0 sc-1bit9h6-14 hJyIyF NpKpm">
-                                            <div className="sc-1bit9h6-0 sc-1bit9h6-15 hJyIyF FLymZ">
-                                                <div style={{ width: "100%", height: "100%" }}>
-                                                    xyz
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div> */}
                         </div>
                     </div>
                 </div>
             </div>
-        </React.Fragment>
+        </React.Fragment >
     )
 }
 export default Token;

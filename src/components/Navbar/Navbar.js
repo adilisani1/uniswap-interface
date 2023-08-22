@@ -2,17 +2,23 @@ import React, { useState, useEffect, useRef } from 'react';
 import './Navbar.css';
 import Modal from '../Modal/Modal';
 
-const Navbar = ({ switchTheme, currentTheme, isModalOpen, setIsModalOpen }) => {
+import { options, searchOptions } from '../../service/navbar';
+// import PrivacyModal from '../../utils/PrivacyModal/PrivacyModal';
+
+const Navbar = ({ switchTheme, currentTheme, isModalOpen, setIsModalOpen, privacyModal, setPrivacyModal }) => {
     const logoImage = currentTheme === 'dark' ? 'assets/images/logo/logo-two.png' : 'assets/images/logo/logo-two-black.png';
 
     const [isActiveHeader, setIsActiveHeader] = useState(false);
 
+    //privacy
+    const privacyHandler = () => {
+        setPrivacyModal(true)
+    }
 
     const [searchTerm, setSearchTerm] = useState('');
     const [isSearchOpen, setSearchOpen] = useState(false);
 
     const ref = useRef(null);
-
 
     const connectHandler = () => {
         setIsModalOpen(true)
@@ -32,53 +38,8 @@ const Navbar = ({ switchTheme, currentTheme, isModalOpen, setIsModalOpen }) => {
     }, []);
 
     const [isOpen, setIsOpen] = useState(false);
-    const options = [
-        { value: 'etheruim', label: "Etheruim", imgSrc: 'assets/images/tokens/eth-icon.png' },
-        { value: 'polygon', label: "Polygon", imgSrc: 'assets/images/tokens/polygon.svg' },
-        { value: 'optimistic', label: "Optimistic", imgSrc: 'assets/images/tokens/optimistic.svg' },
-    ];
-    //Search Options
-    const searchOptions = [
-        //Popular Tokens
-        {
-            id: 1,
-            value: 'etheruim',
-            label: "Ether",
-            symbol: "ETH",
-            imgSrc: 'assets/images/tokens/eth-icon.png',
-            price: 1676.75,
-            oldPrice: 1576.50,
-        },
-        {
-            id: 2,
-            value: 'usdCoin',
-            label: "USD Coin",
-            symbol: "USDC",
-            imgSrc: 'assets/images/usdt-icon.png',
-            price: 1.00,
-            oldPrice: 1.30
-        },
 
-        //Popular NFTs
-        {
-            id: 1,
-            value: 'degods',
-            label: "DeGods",
-            items: "8999",
-            imgSrc: 'assets/images/degodsicon.png',
-            floor: 24.40,
-            items: 9998
-        },
-        {
-            id: 2,
-            value: 'bored',
-            label: "Bored Ape Yacht Club",
-            items: "9999",
-            imgSrc: 'assets/images/bored.png',
-            floor: 4.55,
-            items: 19480
-        },
-    ];
+
 
     const [selectedOption, setSelectedOption] = useState(options[0]);
 
@@ -167,7 +128,9 @@ const Navbar = ({ switchTheme, currentTheme, isModalOpen, setIsModalOpen }) => {
                                         <li><a className="dropdown-item" href="#">Help center</a></li>
                                         <li><a className="dropdown-item" href="#">Documentation</a></li>
                                         <li><a className="dropdown-item" href="#">Feedback</a></li>
-                                        <li><a className="dropdown-item" href="/privacy">Legal & Privacy</a></li>
+                                        {/* <li><a className="dropdown-item" href="/privacy" onClick={privacyHandler}>Legal & Privacy</a></li> */}
+                                        <li><a className="dropdown-item" href='/privacy'>Legal & Privacy</a></li>
+
 
                                         <div className="icons-wrapper">
                                             <a
@@ -225,8 +188,8 @@ const Navbar = ({ switchTheme, currentTheme, isModalOpen, setIsModalOpen }) => {
 
                             {isSearchOpen && (
 
-                                <ul className="search-options">
-                                    <div className='options'>
+                                <ul className="search-options-box">
+                                    <div className='options-box'>
                                         <div className='so'>
                                             <div className=''>
 
@@ -330,18 +293,18 @@ const Navbar = ({ switchTheme, currentTheme, isModalOpen, setIsModalOpen }) => {
                     {/* right________Nav */}
                     <div className="right-nav">
                         <div className="custom-dropdown">
-                            <div className="selected-op" onClick={toggleDropdown}>
+                            <div className="selected-option" onClick={toggleDropdown}>
                                 <img src={selectedOption.imgSrc} alt={selectedOption.value} />
-                                <span className='drp'>
+                                <span className='dropdown'>
                                     <i class="nav-dropdown ri-arrow-down-s-line"></i>
 
                                 </span>
                             </div>
                             {isOpen && (
-                                <ul className="op">
+                                <ul className="options">
                                     {options.map((option, index) => (
                                         <li key={index} onClick={() => handleOptionClick(option)}>
-                                            <div className='op-name'>
+                                            <div className='options-name'>
                                                 <img src={option.imgSrc} alt={option.label} />
                                                 <span>{option.label}</span>
                                             </div>
@@ -363,6 +326,10 @@ const Navbar = ({ switchTheme, currentTheme, isModalOpen, setIsModalOpen }) => {
                 isModalOpen={isModalOpen}
                 setIsModalOpen={setIsModalOpen}
                 switchTheme={switchTheme} />
+            {/* 
+            <PrivacyModal
+                privacyModal={privacyModal}
+                setPrivacyModal={setPrivacyModal} /> */}
         </div>
 
     );

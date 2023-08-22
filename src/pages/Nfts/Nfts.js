@@ -3,6 +3,7 @@ import './Nfts.css';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { allTableDataETH, allTableDataUSD, slidersData } from '../../service/nfts';
 
 const Nfts = () => {
     //Slider
@@ -16,44 +17,6 @@ const Nfts = () => {
         slidesToScroll: 1,
     };
 
-    // Slider Data
-    const slidersData = [
-        {
-            id: 1,
-            coverImage: "assets/cover-images/img-2.png",
-            image: "assets/images/degodsicon.png",
-            title: "DeGods",
-            sliderContent: [
-                {
-                    icons: [
-                        "assets/images/logo/unicorn-logo.png",
-                        "assets/images/opensea-grey.png"
-                    ],
-                    names: ['Uniswap', 'OpenSea', 'X2Y2', 'LooksRare'],
-                    ethFloor: [29.09, 29.09, 83.14, 63.39],
-                    listings: [206, 199, 1, 5]
-                }
-            ]
-        },
-        {
-            id: 2,
-            coverImage: "assets/cover-images/img-1.png",
-            image: "assets/cover-images/img-1.png",
-            title: "Bored Ape Yacht Club",
-
-            sliderContent: [
-                {
-                    icons: [
-                        "assets/images/logo/unicorn-logo.png",
-                        "assets/images/opensea-grey.png"
-                    ],
-                    names: ['Uniswap', 'OpenSea', 'X2Y2', 'LooksRare'],
-                    ethFloor: [29.09, 29.09, 83.14, 63.39],
-                    listings: [206, 199, 1, 5]
-                }
-            ]
-        },
-    ];
 
     // Sliders Images
     const data = [
@@ -61,90 +24,10 @@ const Nfts = () => {
         "https://i.seadn.io/gae/i5dYZRkVCUK97bfprQ3WXyrT9BnLSZtVKGJlKQ919uaUB0sxbngVCioaiyu9r6snqfi2aaTyIvv6DHm4m2R3y7hMajbsv14pSZK8mhs"
     ]
 
-
     //tabs values
     const tabs = ['1D', '1W', '1M', "All"];
     //currency tabs
     const currencyTabs = ["USD", "ETH"];
-
-    // Data in ETH
-    const allTableDataETH = [
-        {
-            id: 1,
-            title: "DeGods",
-            image: "https://i.seadn.io/gcs/files/c6cb0b1d6f2ab61c0efacf00e62e2230.jpg?w=500&auto=format",
-            floor: 4.7,
-            floorChange: 6,
-            volume: 3376,
-            volumeChange: 70,
-            items: 8.9,
-            owners: 2.5,
-            // tab: "1D"
-        },
-        {
-            id: 2,
-            title: "Bored Ape Yacht Club",
-            image: "assets/images/bored.png",
-            floor: 26.5,
-            floorChange: 9,
-            volume: 2165,
-            volumeChange: 60,
-            items: 10,
-            owners: 5.6,
-            // tab: "1W"
-        },
-        {
-            id: 3,
-            title: "Mutant Ape Yacht Club",
-            image: "assets/images/mount.png",
-            floor: 4.65,
-            floorChange: 8,
-            volume: 891,
-            volumeChange: 17,
-            items: 19.5,
-            owners: 11.4,
-            // tab: "1W"
-        },
-
-
-    ]
-
-    // Data in USD
-    const allTableDataUSD = [
-        {
-            id: 1,
-            title: "DeGods",
-            image: "https://i.seadn.io/gcs/files/c6cb0b1d6f2ab61c0efacf00e62e2230.jpg?w=500&auto=format",
-            floor: 7835,
-            floorChange: 6,
-            volume: 5636917,
-            volumeChange: 50,
-            items: 8.9,
-            owners: 2.5,
-        },
-        {
-            id: 2,
-            title: "Bored Ape Yacht Club",
-            image: "assets/images/bored.png",
-            floor: 44280,
-            floorChange: 9,
-            volume: 3617056,
-            volumeChange: 68,
-            items: 10,
-            owners: 5.2,
-        },
-        {
-            id: 3,
-            title: "Mutant Ape Yacht Club",
-            image: "assets/images/mount.png",
-            floor: 7280,
-            floorChange: 8,
-            volume: 1417056,
-            volumeChange: 17,
-            items: 19.5,
-            owners: 11.4,
-        },
-    ]
 
 
     // Sorting header keys

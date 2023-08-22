@@ -17,26 +17,35 @@ import Nfts from "./pages/Nfts/Nfts";
 import PrivacyModal from './utils/PrivacyModal/PrivacyModal';
 import Vote from "./pages/Vote/Vote";
 import LiquidityModal from "./utils/LiquidityModal/LiquidityModal";
-import SwapModal from "./utils/SwapModal/SwapModal";
 import NftsDetails from "./pages/NftsDetails/NftsDetails";
 import Wallet from "./components/Wallet/Wallet";
 
-import "./app.css";
+import "./App.css";
 import useLocalStorage from "use-local-storage";
 import TokenDetails from "./components/TokenDetails/TokenDetails";
 
 
 function App() {
+
   //SideBarConnectModal
   const [isModalOpen, setIsModalOpen] = useState(false);
   //Swap Modal
   const [swapModal, setSwapModal] = useState(false);
 
+  //Privacy Modal
+  const [privacyModal, setPrivacyModal] = useState(false)
+
   const router = createBrowserRouter([
 
     {
       path: "/",
-      element: <Layout isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />,
+      element: <Layout
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+        privacyModal={privacyModal}
+        setPrivacyModal={setPrivacyModal}
+      />,
+
       children: [
         {
           path: "/",
@@ -77,6 +86,7 @@ function App() {
           path: "/vote",
           element: <Vote />
         },
+
         {
           path: "/privacy",
           element: <PrivacyModal />
@@ -84,26 +94,23 @@ function App() {
         {
           path: "/liquidity",
           element: <LiquidityModal />
-        },
+        }
 
-        // {
-        //   path: "/swap-modal",
-        //   element: <SwapModal />
-        // },
+
       ]
     },
 
   ]);
 
   return (
-    <div className="app" >
+    <div className="App" >
       <RouterProvider router={router} />
     </div>
   );
 }
 
 
-const Layout = ({ isModalOpen, setIsModalOpen }) => {
+const Layout = ({ isModalOpen, setIsModalOpen, privacyModal, setPrivacyModal }) => {
 
 
   // Theme 
@@ -115,13 +122,15 @@ const Layout = ({ isModalOpen, setIsModalOpen }) => {
   }
 
   return (
-    <div className="app" data-theme={theme}>
+    <div className="App" data-theme={theme}>
       {location.pathname !== "/wallet" && (
         <Navbar
           switchTheme={switchTheme}
           currentTheme={theme}
           isModalOpen={isModalOpen}
-          setIsModalOpen={setIsModalOpen} />
+          setIsModalOpen={setIsModalOpen}
+          privacyModal={privacyModal}
+          setPrivacyModal={setPrivacyModal} />
       )}
       <Outlet />
       {/* <Footer /> */}

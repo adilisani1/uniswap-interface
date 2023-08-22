@@ -15,7 +15,8 @@
   --home-cards: rgb(19, 26, 42);
   /* --text-color: rgb(152, 161, 192); */
   --text-color: #7F9BD4;
-  --body-bg-shade: radial-gradient(72.04% 72.04% at 50% 3.99%, rgb(255, 55, 235) 0%, rgba(166, 151, 255, 0) 100%);
+  /* --body-bg-shade: radial-gradient(72.04% 72.04% at 50% 3.99%, rgb(255, 55, 235) 0%, rgba(166, 151, 255, 0) 100%); */
+  --body-bg-shade: radial-gradient(72.04% 72.04% at 50% 3.99%, #89CFF0 0%, rgba(166, 151, 255, 0) 100%);
   --card-border-color: 1px solid rgba(152, 161, 192, 0.24);
   --card-hover-color: 1px solid rgb(76, 130, 251);
   --color-white: #FFFFFF;
@@ -51,9 +52,9 @@
   /* Footer  */
   --text-clr: rgb(152, 161, 192);
   /* Liquidity page */
-    --dropdown-bg: rgb(19, 26, 42);
-    --dropdown-border:rgb(13, 17, 28);
-      --model-btn-color: rgb(76, 130, 251);
+  --dropdown-bg: rgb(19, 26, 42);
+  --dropdown-border: rgb(13, 17, 28);
+  --model-btn-color: rgb(76, 130, 251);
 }
 
 
@@ -65,7 +66,8 @@
   /* Body Background */
   --body-color: radial-gradient(100% 100% at 50% 0, rgba(255, 184, 226, .51) 0, rgba(255, 255, 255, 0) 100%),
     #fff;
-  --body-bg: radial-gradient(100% 100% at 50% 0, rgba(255, 184, 226, .51) 0, rgba(255, 255, 255, 0) 100%), #fff;
+  /* --body-bg: radial-gradient(100% 100% at 50% 0, rgba(255, 184, 226, .51) 0, rgba(255, 255, 255, 0) 100%), #fff; */
+  --body-bg: radial-gradient(100% 100% at 50% 0, rgb(217 226 255 / 51%) 0, rgba(255, 255, 255, 0) 100%), #fff;
   --back-drop: linear-gradient(rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 45%);
   --cards-background: linear-gradient(179.82deg, rgba(255, 255, 255, 0) 0.16%, rgb(234, 234, 234) 99.85%);
   /* Swap page */
@@ -106,8 +108,8 @@
   /* Footer  */
   --text-clr: rgb(119, 128, 160);
   /* Liquidity page */
-  --dropdown-bg:rgb(245, 246, 252);
-  --dropdown-border:#fff;
+  --dropdown-bg: rgb(245, 246, 252);
+  --dropdown-border: #fff;
 }
 
 
